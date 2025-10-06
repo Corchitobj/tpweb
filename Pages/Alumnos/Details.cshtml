@@ -1,0 +1,55 @@
+﻿@page
+@model tpweb.Pages.Alumnos.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Alumno</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Alumno.Nombre)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Alumno.Nombre)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Alumno.Apellido)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Alumno.Apellido)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Alumno.Dni)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Alumno.Dni)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Alumno.Mail)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Alumno.Mail)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Alumno.Usuario)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Alumno.Usuario)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Alumno.Contraseña)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Alumno.Contraseña)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Alumno.IdAlumno">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>
