@@ -1,0 +1,63 @@
+﻿@page
+@model tpweb.Pages.Usuarios.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Usuario</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Usuario.Nombre" class="control-label"></label>
+                <input asp-for="Usuario.Nombre" class="form-control" />
+                <span asp-validation-for="Usuario.Nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Usuario.Apellido" class="control-label"></label>
+                <input asp-for="Usuario.Apellido" class="form-control" />
+                <span asp-validation-for="Usuario.Apellido" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Usuario.Dni" class="control-label"></label>
+                <input asp-for="Usuario.Dni" class="form-control" />
+                <span asp-validation-for="Usuario.Dni" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Usuario.Mail" class="control-label"></label>
+                <input asp-for="Usuario.Mail" class="form-control" />
+                <span asp-validation-for="Usuario.Mail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Usuario.UsuarioNombre" class="control-label"></label>
+                <input asp-for="Usuario.UsuarioNombre" class="form-control" />
+                <span asp-validation-for="Usuario.UsuarioNombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Usuario.Contraseña" class="control-label"></label>
+                <input asp-for="Usuario.Contraseña" class="form-control" />
+                <span asp-validation-for="Usuario.Contraseña" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Usuario.RolId" class="control-label"></label>
+                <select asp-for="Usuario.RolId" class ="form-control" asp-items="ViewBag.RolId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

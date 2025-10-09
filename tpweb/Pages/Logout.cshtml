@@ -1,0 +1,15 @@
+@page
+@model tpweb.Pages.LogoutModel
+@{
+    ViewData["Title"] = "Cerrar Sesión";
+}
+
+<div class="alert alert-info text-center mt-5" role="alert">
+    Cerrando sesión... Serás redirigido al inicio.
+</div>
+
+<script>
+    setTimeout(function () {
+        window.location.href = '/Index';
+    }, 1500); // 1.5 segundos antes de redirigir
+</script>

@@ -1,0 +1,66 @@
+﻿@page
+@model tpweb.Pages.Alumnos.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Alumno[0].Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Alumno[0].Apellido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Alumno[0].Dni)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Alumno[0].Mail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Alumno[0].Usuario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Alumno[0].Contraseña)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Alumno) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Apellido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dni)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Usuario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Contraseña)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.IdAlumno">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.IdAlumno">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.IdAlumno">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

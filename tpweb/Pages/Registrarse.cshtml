@@ -1,0 +1,58 @@
+﻿@page
+@model tpweb.Pages.RegistrarseModel
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white text-center">
+                    <h3>Registrarse</h3>
+                </div>
+                <div class="card-body bg-white">
+                    <form method="post">
+                        <div class="mb-3">
+                            <label asp-for="NuevoUsuario.Nombre" class="form-label"></label>
+                            <input asp-for="NuevoUsuario.Nombre" class="form-control" />
+                            <span asp-validation-for="NuevoUsuario.Nombre" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="NuevoUsuario.Apellido" class="form-label"></label>
+                            <input asp-for="NuevoUsuario.Apellido" class="form-control" />
+                            <span asp-validation-for="NuevoUsuario.Apellido" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="NuevoUsuario.Dni" class="form-label"></label>
+                            <input asp-for="NuevoUsuario.Dni" class="form-control" />
+                            <span asp-validation-for="NuevoUsuario.Dni" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="NuevoUsuario.Mail" class="form-label"></label>
+                            <input asp-for="NuevoUsuario.Mail" class="form-control" />
+                            <span asp-validation-for="NuevoUsuario.Mail" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="NuevoUsuario.UsuarioNombre" class="form-label"></label>
+                            <input asp-for="NuevoUsuario.UsuarioNombre" class="form-control" />
+                            <span asp-validation-for="NuevoUsuario.UsuarioNombre" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="NuevoUsuario.Contraseña" class="form-label"></label>
+                            <input asp-for="NuevoUsuario.Contraseña" type="password" class="form-control" />
+                            <span asp-validation-for="NuevoUsuario.Contraseña" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Perfil</label>
+                            <select asp-for="Perfil" asp-items="Model.Perfiles" class="form-select"></select>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary">Registrarse</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
