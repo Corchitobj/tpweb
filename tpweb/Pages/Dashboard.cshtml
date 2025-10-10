@@ -1,0 +1,25 @@
+﻿@page
+@model tpweb.Pages.DashboardModel
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white text-center">
+                    <h3>Panel de Control</h3>
+                </div>
+                <div class="card-body bg-white text-center">
+                    <div class="d-grid gap-3">
+                        <a class="btn btn-primary btn-lg" asp-page="/Crear">Crear</a>
+                        <a class="btn btn-warning btn-lg text-white" asp-page="/Editar">Editar</a>
+                        <a class="btn btn-info btn-lg text-white" asp-page="/Mostrar">Mostrar</a>
+                        <a class="btn btn-danger btn-lg" asp-page="/Eliminar">Eliminar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

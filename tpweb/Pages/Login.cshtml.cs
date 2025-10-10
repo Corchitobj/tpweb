@@ -23,8 +23,15 @@ namespace tpweb.Pages
 
         public string ErrorMessage { get; set; } = string.Empty;
 
-        public void OnGet()
+        public IActionResult OnGet()
         {
+            var rol = HttpContext.Session.GetString("Rol");
+            if (!string.IsNullOrEmpty(rol))
+            {
+                // Si ya hay sesión, redirige al dashboard
+                return RedirectToPage("/Dashboard");
+            }
+            return Page();
         }
 
         public IActionResult OnPost()
@@ -35,7 +42,6 @@ namespace tpweb.Pages
                 return Page();
             }
 
-            // Buscar primero en Usuarios (Docente, Preceptor, Admin)
             var usuario = _context.Usuarios
                 .Include(u => u.Rol)
                 .FirstOrDefault(u => u.UsuarioNombre == UsuarioNombre && u.Contraseña == Contraseña);
@@ -44,10 +50,9 @@ namespace tpweb.Pages
             {
                 HttpContext.Session.SetString("Rol", usuario.Rol.Nombre);
                 HttpContext.Session.SetString("UsuarioNombre", usuario.UsuarioNombre);
-                return RedirectToPage("Index");
+                return RedirectToPage("/Dashboard");
             }
 
-            // Buscar en Alumnos
             var alumno = _context.Alumnos
                 .FirstOrDefault(a => a.Usuario == UsuarioNombre && a.Contraseña == Contraseña);
 
@@ -55,7 +60,7 @@ namespace tpweb.Pages
             {
                 HttpContext.Session.SetString("Rol", "Alumno");
                 HttpContext.Session.SetString("UsuarioNombre", alumno.Usuario);
-                return RedirectToPage("Index");
+                return RedirectToPage("/Dashboard");
             }
 
             ErrorMessage = "Usuario o contraseña incorrectos.";
