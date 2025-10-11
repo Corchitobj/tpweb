@@ -1,0 +1,145 @@
+﻿@page
+@model tpweb.Pages.FormulariosModel
+@{
+    ViewData["Title"] = "Formularios";
+}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white text-center">
+                    <h3>Panel de Control</h3>
+                </div>
+                <div class="card-body bg-white">
+                    <form id="crudForm" method="post">
+                        <div class="mb-3">
+                            <label for="entidad" class="form-label">Seleccione una entidad</label>
+                            <select class="form-select" id="entidad" name="entidad" onchange="mostrarCampos()">
+                                <option value="">-- Seleccione --</option>
+                                <option value="Alumno">Alumno</option>
+                                <option value="Preceptor">Preceptor</option>
+                                <option value="Docente">Docente</option>
+                                <option value="Tarea">Tarea</option>
+                                <option value="Materia">Materia</option>
+                            </select>
+                        </div>
+
+                        <!-- Campos para Alumno -->
+                        <div id="camposAlumno" style="display:none;">
+                            <div class="mb-3">
+                                <label class="form-label">Nombre</label>
+                                <input type="text" class="form-control" name="NombreAlumno" />
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Apellido</label>
+                                <input type="text" class="form-control" name="ApellidoAlumno" />
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">DNI</label>
+                                <input type="text" class="form-control" name="DniAlumno" />
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Mail</label>
+                                <input type="email" class="form-control" name="MailAlumno" />
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Usuario</label>
+                                <input type="text" class="form-control" name="UsuarioAlumno" />
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Contraseña</label>
+                                <input type="password" class="form-control" name="ContraseñaAlumno" />
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Curso</label>
+                                <select class="form-select" name="CursoId" asp-items="Model.CursosSelectList"></select>
+                            </div>
+                        </div>
+
+                        <!-- Campos para Docente y Preceptor -->
+                        <div id="camposDocentePreceptor" style="display:none;">
+                            <div class="mb-3">
+                                <label class="form-label">Nombre</label>
+                                <input type="text" class="form-control" name="NombreDocentePreceptor" />
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Apellido</label>
+                                <input type="text" class="form-control" name="ApellidoDocentePreceptor" />
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">DNI</label>
+                                <input type="text" class="form-control" name="DniDocentePreceptor" />
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Mail</label>
+                                <input type="email" class="form-control" name="MailDocentePreceptor" />
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Usuario</label>
+                                <input type="text" class="form-control" name="UsuarioDocentePreceptor" />
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Contraseña</label>
+                                <input type="password" class="form-control" name="ContraseñaDocentePreceptor" />
+                            </div>
+                        </div>
+
+                        <!-- Campos para Tarea -->
+                        <div id="camposTarea" style="display:none;">
+                            <div class="mb-3">
+                                <label class="form-label">Título</label>
+                                <input type="text" class="form-control" name="TituloTarea" />
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Descripción</label>
+                                <textarea class="form-control" name="DescripcionTarea"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Fecha de Entrega</label>
+                                <input type="date" class="form-control" name="FechaEntregaTarea" />
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Materia <span class="text-danger">*</span></label>
+                                <select class="form-select" name="MateriaId" asp-items="Model.MateriasSelectList" required>
+                                    <option value="">-- Seleccione una materia --</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Campos para Materia -->
+                        <div id="camposMateria" style="display:none;">
+                            <div class="mb-3">
+                                <label class="form-label">Nombre</label>
+                                <input type="text" class="form-control" name="NombreMateria" />
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Curso</label>
+                                <select class="form-select" name="CursoId" asp-items="Model.CursosSelectList"></select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Docente</label>
+                                <select class="form-select" name="DocenteId" asp-items="Model.DocentesSelectList"></select>
+                            </div>
+                        </div>
+
+                        <div class="d-grid mt-4">
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        function mostrarCampos() {
+            var entidad = document.getElementById("entidad").value;
+            document.getElementById("camposAlumno").style.display = (entidad === "Alumno") ? "block" : "none";
+            document.getElementById("camposDocentePreceptor").style.display = (entidad === "Docente" || entidad === "Preceptor") ? "block" : "none";
+            document.getElementById("camposTarea").style.display = (entidad === "Tarea") ? "block" : "none";
+            document.getElementById("camposMateria").style.display = (entidad === "Materia") ? "block" : "none";
+        }
+    </script>
+}

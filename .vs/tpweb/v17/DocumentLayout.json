@@ -3,20 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\User\\Desktop\\tpweb\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{12892A49-22EB-4818-9B50-F4839D069772}|tpweb\\tpweb.csproj|c:\\users\\user\\desktop\\tpweb\\tpweb\\pages\\login.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{12892A49-22EB-4818-9B50-F4839D069772}|tpweb\\tpweb.csproj|solutionrelative:tpweb\\pages\\login.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{12892A49-22EB-4818-9B50-F4839D069772}|tpweb\\tpweb.csproj|c:\\users\\user\\desktop\\tpweb\\tpweb\\pages\\formularios.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12892A49-22EB-4818-9B50-F4839D069772}|tpweb\\tpweb.csproj|solutionrelative:tpweb\\pages\\formularios.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{12892A49-22EB-4818-9B50-F4839D069772}|tpweb\\tpweb.csproj|c:\\users\\user\\desktop\\tpweb\\tpweb\\pages\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{12892A49-22EB-4818-9B50-F4839D069772}|tpweb\\tpweb.csproj|solutionrelative:tpweb\\pages\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{12892A49-22EB-4818-9B50-F4839D069772}|tpweb\\tpweb.csproj|c:\\users\\user\\desktop\\tpweb\\tpweb\\pages\\formularios.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{12892A49-22EB-4818-9B50-F4839D069772}|tpweb\\tpweb.csproj|solutionrelative:tpweb\\pages\\formularios.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{12892A49-22EB-4818-9B50-F4839D069772}|tpweb\\tpweb.csproj|c:\\users\\user\\desktop\\tpweb\\tpweb\\pages\\dashboard.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{12892A49-22EB-4818-9B50-F4839D069772}|tpweb\\tpweb.csproj|solutionrelative:tpweb\\pages\\dashboard.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{12892A49-22EB-4818-9B50-F4839D069772}|tpweb\\tpweb.csproj|c:\\users\\user\\desktop\\tpweb\\tpweb\\modelos\\clase escuela\\tarea.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12892A49-22EB-4818-9B50-F4839D069772}|tpweb\\tpweb.csproj|solutionrelative:tpweb\\modelos\\clase escuela\\tarea.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{12892A49-22EB-4818-9B50-F4839D069772}|tpweb\\tpweb.csproj|c:\\users\\user\\desktop\\tpweb\\tpweb\\pages\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{12892A49-22EB-4818-9B50-F4839D069772}|tpweb\\tpweb.csproj|solutionrelative:tpweb\\pages\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{12892A49-22EB-4818-9B50-F4839D069772}|tpweb\\tpweb.csproj|c:\\users\\user\\desktop\\tpweb\\tpweb\\pages\\dashboard.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12892A49-22EB-4818-9B50-F4839D069772}|tpweb\\tpweb.csproj|solutionrelative:tpweb\\pages\\dashboard.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
@@ -58,26 +62,52 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Login.cshtml.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\tpweb\\tpweb\\Pages\\Login.cshtml.cs",
-              "RelativeDocumentMoniker": "tpweb\\Pages\\Login.cshtml.cs",
-              "ToolTip": "C:\\Users\\User\\Desktop\\tpweb\\tpweb\\Pages\\Login.cshtml.cs",
-              "RelativeToolTip": "tpweb\\Pages\\Login.cshtml.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAA5wCAAAAANAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "Tarea.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\tpweb\\tpweb\\Modelos\\Clase Escuela\\Tarea.cs",
+              "RelativeDocumentMoniker": "tpweb\\Modelos\\Clase Escuela\\Tarea.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\tpweb\\tpweb\\Modelos\\Clase Escuela\\Tarea.cs",
+              "RelativeToolTip": "tpweb\\Modelos\\Clase Escuela\\Tarea.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-10T22:38:02.087Z",
+              "WhenOpened": "2025-10-11T20:24:42.332Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
+              "Title": "Formularios.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\tpweb\\tpweb\\Pages\\Formularios.cshtml.cs",
+              "RelativeDocumentMoniker": "tpweb\\Pages\\Formularios.cshtml.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\tpweb\\tpweb\\Pages\\Formularios.cshtml.cs",
+              "RelativeToolTip": "tpweb\\Pages\\Formularios.cshtml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC8AAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-11T20:18:55.564Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Formularios.cshtml",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\tpweb\\tpweb\\Pages\\Formularios.cshtml",
+              "RelativeDocumentMoniker": "tpweb\\Pages\\Formularios.cshtml",
+              "ToolTip": "C:\\Users\\User\\Desktop\\tpweb\\tpweb\\Pages\\Formularios.cshtml",
+              "RelativeToolTip": "tpweb\\Pages\\Formularios.cshtml",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAAAEQAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-11T19:33:50.816Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "Dashboard.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\tpweb\\tpweb\\Pages\\Dashboard.cshtml.cs",
               "RelativeDocumentMoniker": "tpweb\\Pages\\Dashboard.cshtml.cs",
               "ToolTip": "C:\\Users\\User\\Desktop\\tpweb\\tpweb\\Pages\\Dashboard.cshtml.cs",
               "RelativeToolTip": "tpweb\\Pages\\Dashboard.cshtml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAtAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-10T22:37:42.996Z",
               "EditorCaption": ""
@@ -90,22 +120,9 @@
               "RelativeDocumentMoniker": "tpweb\\Pages\\Dashboard.cshtml",
               "ToolTip": "C:\\Users\\User\\Desktop\\tpweb\\tpweb\\Pages\\Dashboard.cshtml",
               "RelativeToolTip": "tpweb\\Pages\\Dashboard.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAGAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-10-10T22:37:30.339Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Index.cshtml.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\tpweb\\tpweb\\Pages\\Index.cshtml.cs",
-              "RelativeDocumentMoniker": "tpweb\\Pages\\Index.cshtml.cs",
-              "ToolTip": "C:\\Users\\User\\Desktop\\tpweb\\tpweb\\Pages\\Index.cshtml.cs",
-              "RelativeToolTip": "tpweb\\Pages\\Index.cshtml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-10T22:28:56.451Z",
               "EditorCaption": ""
             }
           ]
