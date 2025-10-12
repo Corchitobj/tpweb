@@ -29,7 +29,7 @@
                         <li class="nav-item">
                             <a class="nav-link text-white" asp-area="" asp-page="/Index">Inicio</a>
                         </li>
-                        @if (rol == "Administrador" || rol == "Preceptor")
+                        @if (rol == "Administrador")
                         {
                             <li class="nav-item">
                                 <a class="nav-link text-white" asp-area="" asp-page="/Alumnos/Index">Alumnos</a>
@@ -50,28 +50,49 @@
                               <a class="nav-link text-white" asp-area="" asp-page="/Cursos/Index">Cursos</a>
                             </li>
                         }
+                        else if (rol == "Preceptor")
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-white" asp-area="" asp-page="/VistaPreceptor/Alumnos">Alumnos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" asp-area="" asp-page="/VistaPreceptor/Usuarios">Usuarios</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" asp-area="" asp-page="/VistaPreceptor/Cursos">Cursos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" asp-area="" asp-page="/VistaPreceptor/Asistencias">Asistencias</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" asp-area="" asp-page="/VistaPreceptor/Materias">Materias</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" asp-area="" asp-page="/VistaPreceptor/Tareas">Tareas</a>
+                            </li>
+                        }
                         else if (rol == "Alumno")
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-white" asp-area="" asp-page="/Asistencias/Index">Mis Asistencias</a>
+                                <a class="nav-link text-white" asp-area="" asp-page="/VistaAlumno/Asistencias">Mis Asistencias</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-white" asp-area="" asp-page="/Materias/Index">Mis Materias</a>
+                                <a class="nav-link text-white" asp-area="" asp-page="/VistaAlumno/Materias">Mis Materias</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-white" asp-area="" asp-page="/Tareas/Index">Mis Tareas</a>
+                                <a class="nav-link text-white" asp-area="" asp-page="/VistaAlumno/Tareas">Mis Tareas</a>
                             </li>
                         }
                         else if (rol == "Docente")
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-white" asp-area="" asp-page="/frmCurso">Cursos</a>
+                                <a class="nav-link text-white" asp-area="" asp-page="/VistaDocente/Cursos">Cursos</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-white" asp-area="" asp-page="/Materias/Index">Materias</a>
+                                <a class="nav-link text-white" asp-area="" asp-page="/VistaDocente/Materias">Materias</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-white" asp-area="" asp-page="/Alumnos/Index">Alumnos</a>
+                                <a class="nav-link text-white" asp-area="" asp-page="/VistaDocentes/Alumnos">Alumnos</a>
                             </li>
                         }
                     </ul>

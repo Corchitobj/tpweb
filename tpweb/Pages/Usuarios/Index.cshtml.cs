@@ -12,21 +12,32 @@ namespace tpweb.Pages.Usuarios
 {
     public class IndexModel : PageModel
     {
-        private readonly tpweb.Data.AppDbContext _context;
+        private readonly AppDbContext _context;
 
-        public IndexModel(tpweb.Data.AppDbContext context)
+        public IndexModel(AppDbContext context)
         {
             _context = context;
         }
 
-        public IList<Usuario> Usuario { get;set; } = default!;
+        [BindProperty(SupportsGet = true)]
+        public int? RolId { get; set; } // Filtro por tipo de usuario
+
+        public List<Usuario> Usuario { get; set; }
+        public List<Rol> Roles { get; set; }
 
         public async Task OnGetAsync()
         {
-            Usuario = await _context.Usuarios
-                .Include(u => u.Rol)
-                .OrderBy(a => a.Apellido)
-                .ToListAsync();
+            Roles = await _context.Roles.ToListAsync();
+
+            var query = _context.Usuarios.Include(u => u.Rol).AsQueryable();
+
+            if (RolId.HasValue && RolId.Value > 0)
+            {
+                query = query.Where(u => u.RolId == RolId.Value);
+            }
+
+            Usuario = await query.ToListAsync();
         }
+
     }
 }

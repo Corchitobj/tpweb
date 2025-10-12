@@ -1824,3 +1824,4 @@ C:\Users\gianl\OneDrive\Escritorio\tpweb\tpweb\obj\Debug\net8.0\refint\tpweb.dll
 C:\Users\gianl\OneDrive\Escritorio\tpweb\tpweb\obj\Debug\net8.0\tpweb.pdb
 C:\Users\gianl\OneDrive\Escritorio\tpweb\tpweb\obj\Debug\net8.0\tpweb.genruntimeconfig.cache
 C:\Users\gianl\OneDrive\Escritorio\tpweb\tpweb\obj\Debug\net8.0\ref\tpweb.dll
+C:\Users\santr\Desktop\tpweb\tpweb\obj\Debug\net8.0\tpweb.sourcelink.json

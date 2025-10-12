@@ -71,6 +71,8 @@ namespace tpweb.Pages.Cursos
             return RedirectToPage();
         }
 
+        
+
         public class CursoViewModel
         {
             public int Id { get; set; }

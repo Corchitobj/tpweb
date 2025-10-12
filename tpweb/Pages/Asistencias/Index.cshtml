@@ -1,42 +1,39 @@
 ﻿@page
 @model tpweb.Pages.Asistencias.IndexModel
-
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Listado de Asistencias";
 }
 
-<h1>Index</h1>
+<h2 class="mb-4">Listado de Asistencias</h2>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create" class="btn btn-primary mb-3">Registrar Asistencia</a>
 </p>
-<table class="table">
-    <thead>
+
+<table class="table table-bordered table-hover">
+    <thead class="table-primary">
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Asistencia[0].Fecha)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Asistencia[0].Materia)
-            </th>
-            <th></th>
+            <th>Fecha</th>
+            <th>Materia</th>
+            <th style="width: 180px;">Acciones</th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Asistencia) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Fecha)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Materia.IdMateria)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var asistencia in Model.Asistencia)
+        {
+            <tr>
+                <td>@asistencia.Fecha.ToString("dd/MM/yyyy")</td>
+                <td>@asistencia.Materia?.Nombre</td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@asistencia.Id" class="btn btn-outline-warning btn-sm">Editar</a>
+                    <a asp-page="./Details" asp-route-id="@asistencia.Id" class="btn btn-outline-info btn-sm ms-1">Detalles</a>
+                    <a asp-page="./Delete" asp-route-id="@asistencia.Id" class="btn btn-outline-danger btn-sm ms-1">Eliminar</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+}
