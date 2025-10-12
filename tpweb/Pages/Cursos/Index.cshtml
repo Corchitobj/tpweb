@@ -1,0 +1,131 @@
+﻿@page
+@model tpweb.Pages.Cursos.IndexModel
+@{
+    ViewData["Title"] = "Listado de Cursos";
+}
+
+<h2 class="mb-4">Listado de Cursos</h2>
+
+<table class="table table-bordered table-hover">
+    <thead class="table-primary">
+        <tr>
+            <th>Curso</th>
+            <th style="width: 150px;">Ver Alumnos</th>
+            <th style="width: 150px;">Materias</th>
+            <th style="width: 180px;">Vincular Alumno</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var curso in Model.Cursos)
+        {
+            <tr>
+                <td>@curso.Nombre</td>
+                <td>
+                    <button class="btn btn-outline-info btn-sm" type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#alumnos-@curso.Id"
+                            aria-expanded="false"
+                            aria-controls="alumnos-@curso.Id">
+                        Ver Alumnos
+                    </button>
+                </td>
+                <td>
+                    <button class="btn btn-outline-secondary btn-sm" type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#materias-@curso.Id"
+                            aria-expanded="false"
+                            aria-controls="materias-@curso.Id">
+                        Materias
+                    </button>
+                </td>
+                <td>
+                    <button class="btn btn-outline-success btn-sm" type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#vincular-@curso.Id"
+                            aria-expanded="false"
+                            aria-controls="vincular-@curso.Id">
+                        Vincular Alumno
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4" class="p-0 border-0">
+                    <div class="collapse mt-2" id="alumnos-@curso.Id">
+                        <strong>Alumnos:</strong>
+                        @if (curso.Alumnos != null && curso.Alumnos.Any())
+                        {
+                            <ul>
+                                @foreach (var alumno in curso.Alumnos)
+                                {
+                                    <li>@alumno.Apellido, @alumno.Nombre (@alumno.Dni)</li>
+                                }
+                            </ul>
+                        }
+                        else
+                        {
+                            <span class="text-muted">No hay alumnos en este curso.</span>
+                        }
+                    </div>
+                    <div class="collapse mt-2" id="materias-@curso.Id">
+                        <strong>Materias:</strong>
+                        @if (curso.Materias != null && curso.Materias.Any())
+                        {
+                            <table class="table table-sm">
+                                <thead>
+                                    <tr>
+                                        <th>Materia</th>
+                                        <th>Docente</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var materia in curso.Materias)
+                                    {
+                                        <tr>
+                                            <td>@materia.Nombre</td>
+                                            <td>
+                                                @(materia.Docente != null
+                                                    ? $"{materia.Docente.Apellido}, {materia.Docente.Nombre}"
+                                                    : "Sin docente")
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        }
+                        else
+                        {
+                            <span class="text-muted">No hay materias en este curso.</span>
+                        }
+                    </div>
+                    <div class="collapse mt-2" id="vincular-@curso.Id">
+                        <strong>Vincular Alumno:</strong>
+                        @if (curso.AlumnosNoVinculados != null && curso.AlumnosNoVinculados.Any())
+                        {
+                            <form method="post" asp-page-handler="VincularAlumno">
+                                <input type="hidden" name="cursoId" value="@curso.Id" />
+                                <div class="input-group input-group-sm mb-2">
+                                    <select class="form-select" name="alumnoId" required>
+                                        <option value="">Seleccione un alumno</option>
+                                        @foreach (var alumno in curso.AlumnosNoVinculados)
+                                        {
+                                            <option value="@alumno.IdAlumno">@alumno.Apellido, @alumno.Nombre (@alumno.Dni)</option>
+                                        }
+                                    </select>
+                                    <button type="submit" class="btn btn-success btn-sm">Vincular</button>
+                                </div>
+                            </form>
+                        }
+                        else
+                        {
+                            <span class="text-muted">Todos los alumnos ya están vinculados.</span>
+                        }
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+}
