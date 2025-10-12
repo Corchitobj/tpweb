@@ -24,7 +24,9 @@ namespace tpweb.Pages.Usuarios
         public async Task OnGetAsync()
         {
             Usuario = await _context.Usuarios
-                .Include(u => u.Rol).ToListAsync();
+                .Include(u => u.Rol)
+                .OrderBy(a => a.Apellido)
+                .ToListAsync();
         }
     }
 }

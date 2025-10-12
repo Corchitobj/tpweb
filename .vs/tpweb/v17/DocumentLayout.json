@@ -1,22 +1,26 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\User\\Desktop\\tpweb\\",
+  "WorkspaceRootPath": "C:\\Users\\gianl\\OneDrive\\Escritorio\\tpweb\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{12892A49-22EB-4818-9B50-F4839D069772}|tpweb\\tpweb.csproj|c:\\users\\user\\desktop\\tpweb\\tpweb\\pages\\formularios.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{12892A49-22EB-4818-9B50-F4839D069772}|tpweb\\tpweb.csproj|solutionrelative:tpweb\\pages\\formularios.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{12892A49-22EB-4818-9B50-F4839D069772}|tpweb\\tpweb.csproj|c:\\users\\user\\desktop\\tpweb\\tpweb\\pages\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{12892A49-22EB-4818-9B50-F4839D069772}|tpweb\\tpweb.csproj|solutionrelative:tpweb\\pages\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{12892A49-22EB-4818-9B50-F4839D069772}|tpweb\\tpweb.csproj|c:\\users\\user\\desktop\\tpweb\\tpweb\\pages\\cursos\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{12892A49-22EB-4818-9B50-F4839D069772}|tpweb\\tpweb.csproj|c:\\users\\gianl\\onedrive\\escritorio\\tpweb\\tpweb\\pages\\cursos\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{12892A49-22EB-4818-9B50-F4839D069772}|tpweb\\tpweb.csproj|solutionrelative:tpweb\\pages\\cursos\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{12892A49-22EB-4818-9B50-F4839D069772}|tpweb\\tpweb.csproj|c:\\users\\user\\desktop\\tpweb\\tpweb\\pages\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{12892A49-22EB-4818-9B50-F4839D069772}|tpweb\\tpweb.csproj|solutionrelative:tpweb\\pages\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{12892A49-22EB-4818-9B50-F4839D069772}|tpweb\\tpweb.csproj|c:\\users\\gianl\\onedrive\\escritorio\\tpweb\\tpweb\\pages\\cursos\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{12892A49-22EB-4818-9B50-F4839D069772}|tpweb\\tpweb.csproj|solutionrelative:tpweb\\pages\\cursos\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{12892A49-22EB-4818-9B50-F4839D069772}|tpweb\\tpweb.csproj|c:\\users\\gianl\\onedrive\\escritorio\\tpweb\\tpweb\\pages\\materias\\edit.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12892A49-22EB-4818-9B50-F4839D069772}|tpweb\\tpweb.csproj|solutionrelative:tpweb\\pages\\materias\\edit.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{12892A49-22EB-4818-9B50-F4839D069772}|tpweb\\tpweb.csproj|c:\\users\\gianl\\onedrive\\escritorio\\tpweb\\tpweb\\pages\\materias\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{12892A49-22EB-4818-9B50-F4839D069772}|tpweb\\tpweb.csproj|solutionrelative:tpweb\\pages\\materias\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{12892A49-22EB-4818-9B50-F4839D069772}|tpweb\\tpweb.csproj|c:\\users\\gianl\\onedrive\\escritorio\\tpweb\\tpweb\\pages\\materias\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{12892A49-22EB-4818-9B50-F4839D069772}|tpweb\\tpweb.csproj|solutionrelative:tpweb\\pages\\materias\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,107 +30,72 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Formularios.cshtml",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\tpweb\\tpweb\\Pages\\Formularios.cshtml",
-              "RelativeDocumentMoniker": "tpweb\\Pages\\Formularios.cshtml",
-              "ToolTip": "C:\\Users\\User\\Desktop\\tpweb\\tpweb\\Pages\\Formularios.cshtml",
-              "RelativeToolTip": "tpweb\\Pages\\Formularios.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIsAAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-12T18:33:41.776Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\gianl\\OneDrive\\Escritorio\\tpweb\\tpweb\\Pages\\Cursos\\Index.cshtml.cs",
+              "RelativeDocumentMoniker": "tpweb\\Pages\\Cursos\\Index.cshtml.cs",
+              "ToolTip": "C:\\Users\\gianl\\OneDrive\\Escritorio\\tpweb\\tpweb\\Pages\\Cursos\\Index.cshtml.cs",
+              "RelativeToolTip": "tpweb\\Pages\\Cursos\\Index.cshtml.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAAB4AAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-12T19:44:49.11Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Dashboard.cshtml",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\tpweb\\tpweb\\Pages\\Dashboard.cshtml",
-              "RelativeDocumentMoniker": "tpweb\\Pages\\Dashboard.cshtml",
-              "ToolTip": "C:\\Users\\User\\Desktop\\tpweb\\tpweb\\Pages\\Dashboard.cshtml",
-              "RelativeToolTip": "tpweb\\Pages\\Dashboard.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\gianl\\OneDrive\\Escritorio\\tpweb\\tpweb\\Pages\\Cursos\\Index.cshtml",
+              "RelativeDocumentMoniker": "tpweb\\Pages\\Cursos\\Index.cshtml",
+              "ToolTip": "C:\\Users\\gianl\\OneDrive\\Escritorio\\tpweb\\tpweb\\Pages\\Cursos\\Index.cshtml",
+              "RelativeToolTip": "tpweb\\Pages\\Cursos\\Index.cshtml",
+              "ViewState": "AgIAADYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-12T18:33:19.677Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-12T19:44:37.203Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Index.cshtml.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\tpweb\\tpweb\\Pages\\Cursos\\Index.cshtml.cs",
-              "RelativeDocumentMoniker": "tpweb\\Pages\\Cursos\\Index.cshtml.cs",
-              "ToolTip": "C:\\Users\\User\\Desktop\\tpweb\\tpweb\\Pages\\Cursos\\Index.cshtml.cs",
-              "RelativeToolTip": "tpweb\\Pages\\Cursos\\Index.cshtml.cs",
-              "ViewState": "AgIAACwAAAAAAAAAAADwv0wAAAABAAAAAAAAAA==",
+              "Title": "Edit.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\gianl\\OneDrive\\Escritorio\\tpweb\\tpweb\\Pages\\Materias\\Edit.cshtml.cs",
+              "RelativeDocumentMoniker": "tpweb\\Pages\\Materias\\Edit.cshtml.cs",
+              "ToolTip": "C:\\Users\\gianl\\OneDrive\\Escritorio\\tpweb\\tpweb\\Pages\\Materias\\Edit.cshtml.cs",
+              "RelativeToolTip": "tpweb\\Pages\\Materias\\Edit.cshtml.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAArwCsAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-12T17:54:57.798Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-12T19:33:59.849Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\tpweb\\tpweb\\Pages\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "tpweb\\Pages\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\User\\Desktop\\tpweb\\tpweb\\Pages\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "tpweb\\Pages\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAADEAAABgAAAAAAAAAA==",
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\gianl\\OneDrive\\Escritorio\\tpweb\\tpweb\\Pages\\Materias\\Edit.cshtml",
+              "RelativeDocumentMoniker": "tpweb\\Pages\\Materias\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\gianl\\OneDrive\\Escritorio\\tpweb\\tpweb\\Pages\\Materias\\Edit.cshtml",
+              "RelativeToolTip": "tpweb\\Pages\\Materias\\Edit.cshtml",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABcAAABhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-12T17:41:35.446Z",
-              "EditorCaption": ""
-            }
-          ]
-        },
-        {
-          "DockedWidth": 906,
-          "SelectedChildIndex": -1,
-          "Children": [
+              "WhenOpened": "2025-10-12T19:33:56.458Z"
+            },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
-            }
-          ]
-        },
-        {
-          "DockedWidth": 468,
-          "SelectedChildIndex": -1,
-          "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\gianl\\OneDrive\\Escritorio\\tpweb\\tpweb\\Pages\\Materias\\Index.cshtml",
+              "RelativeDocumentMoniker": "tpweb\\Pages\\Materias\\Index.cshtml",
+              "ToolTip": "C:\\Users\\gianl\\OneDrive\\Escritorio\\tpweb\\tpweb\\Pages\\Materias\\Index.cshtml",
+              "RelativeToolTip": "tpweb\\Pages\\Materias\\Index.cshtml",
+              "ViewState": "AgIAABsAAAAAAAAAAAApwCUAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-12T19:27:01.765Z"
             }
           ]
         }

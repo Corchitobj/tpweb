@@ -23,7 +23,9 @@ namespace tpweb.Pages.Alumnos
 
         public async Task OnGetAsync()
         {
-            Alumno = await _context.Alumnos.ToListAsync();
+            Alumno = await _context.Alumnos
+                .OrderBy(a => a.Apellido)
+                .ToListAsync();
         }
     }
 }

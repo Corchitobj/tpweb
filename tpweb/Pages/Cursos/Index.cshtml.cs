@@ -36,6 +36,12 @@ namespace tpweb.Pages.Cursos
                         .ToList(),
                     Materias = c.Materias.ToList(),
                     AlumnosNoVinculados = _context.Alumnos
+                        .Where(a =>
+                            // Verificamos que el alumno no esté vinculado a ninguna materia
+                            !a.MateriaAlumnos.Any() ||
+                            // O solo está vinculado a materias de este curso
+                            a.MateriaAlumnos.All(ma => ma.Materia.CursoId == c.Id)
+                        )
                         .Where(a => !a.MateriaAlumnos.Any(ma => ma.Materia.CursoId == c.Id))
                         .ToList()
                 })

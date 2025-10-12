@@ -14,10 +14,10 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Usuario[0].Nombre)
+                @Html.DisplayNameFor(model => model.Usuario[0].Apellido)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Usuario[0].Apellido)
+                @Html.DisplayNameFor(model => model.Usuario[0].Nombre)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Usuario[0].Dni)
@@ -29,9 +29,6 @@
                 @Html.DisplayNameFor(model => model.Usuario[0].UsuarioNombre)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Usuario[0].Contraseña)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Usuario[0].Rol)
             </th>
             <th></th>
@@ -41,10 +38,10 @@
 @foreach (var item in Model.Usuario) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Nombre)
+                @Html.DisplayFor(modelItem => item.Apellido)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Apellido)
+                @Html.DisplayFor(modelItem => item.Nombre)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Dni)
@@ -56,10 +53,7 @@
                 @Html.DisplayFor(modelItem => item.UsuarioNombre)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Contraseña)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rol.IdRol)
+                @Html.DisplayFor(modelItem => item.Rol.Nombre)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.IdUsuario">Edit</a> |

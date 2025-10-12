@@ -36,8 +36,8 @@ namespace tpweb.Pages.Materias
                 return NotFound();
             }
             Materia = materia;
-           ViewData["CursoId"] = new SelectList(_context.Cursos, "Id", "Id");
-           ViewData["DocenteId"] = new SelectList(_context.Usuarios, "IdUsuario", "IdUsuario");
+           ViewData["CursoId"] = new SelectList(_context.Cursos, "Id", "Nombre");
+           ViewData["DocenteId"] = new SelectList(_context.Usuarios, "IdUsuario", "Apellido");
             return Page();
         }
 
