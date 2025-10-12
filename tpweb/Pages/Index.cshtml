@@ -1,10 +1,100 @@
 ﻿@page
+@model IndexModel
 @{
-    ViewData["Title"] = "Bienvenido";
+    ViewData["Title"] = "Inicio - ";
 }
 
-<div class="container mt-5">
+<!-- Hero Section -->
+<section class="text-center py-5 bg-light rounded shadow-sm">
+    <h1 class="display-5 fw-bold text-primary">Bienvenido a OWLEDGE</h1>
+    <p class="lead text-muted">Sistema integral de gestión educativa</p>
+    <p>Centraliza la administración, comunicación y aprendizaje en una sola plataforma.</p>
+</section>
+
+<!-- Sección del propósito -->
+<section class="container my-5">
+    <div class="text-center mb-4">
+        <h2 class="fw-bold text-primary">🎯 Propósito del Proyecto</h2>
+        <p class="text-muted">Nuestro objetivo es desarrollar una plataforma centralizada para facilitar la gestión escolar, mejorar la comunicación entre docentes, alumnos y familias, y optimizar los procesos administrativos.</p>
+    </div>
+
     <div class="row justify-content-center">
-        <div class="col-md-8 text-center">
-            <h1 class="display-4">Bienvenido a OWLEDGE</h1>
-            <p class="lead">Sistema de educacion escolar
+        <div class="col-md-8">
+            <div class="card shadow-sm border-0">
+                <div class="card-body">
+                    <p>OWLEDGE busca modernizar la educación a través de la tecnología, ofreciendo herramientas que simplifiquen tareas como el control de matrículas, la generación de boletines, la gestión de tareas y la planificación de actividades.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sección de herramientas -->
+<section class="container my-5">
+    <div class="text-center mb-4">
+        <h2 class="fw-bold text-primary">🧰 Herramientas Utilizadas</h2>
+        <p class="text-muted">Tecnologías aplicadas en el desarrollo del sistema</p>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card text-center shadow-sm border-0 h-100">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">ASP.NET Core</h5>
+                    <p class="card-text text-muted">Framework principal para el backend, utilizando Razor Pages y C# para la lógica del sistema.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-center shadow-sm border-0 h-100">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">Bootstrap 5</h5>
+                    <p class="card-text text-muted">Framework CSS que brinda un diseño moderno, adaptable y limpio para la interfaz de usuario.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-center shadow-sm border-0 h-100">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">SQL Server</h5>
+                    <p class="card-text text-muted">Base de datos relacional para almacenar y gestionar la información académica y administrativa.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sección de miembros del proyecto -->
+<section class="container my-5">
+    <div class="text-center mb-4">
+        <h2 class="fw-bold text-primary">👨‍💻 Miembros del Proyecto</h2>
+        <p class="text-muted">Equipo de desarrollo responsable de OWLEDGE</p>
+    </div>
+
+    <div class="row g-4 justify-content-center">
+        <div class="col-md-3">
+            <div class="card text-center border-0 shadow-sm h-100">
+                <img src="~/images/person1.jpg" class="card-img-top rounded-circle mx-auto mt-3" style="width: 100px; height: 100px; object-fit: cover;" alt="Miembro 1">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">Ignacio Maciel</h5>
+                    <p class="card-text text-muted">Analista Programador - Desarrollo Backend y Diseño del Sistema</p>
+                </div>
+            </div>
+        </div>
+        <!-- Podés duplicar esta card para otros miembros -->
+        <div class="col-md-3">
+            <div class="card text-center border-0 shadow-sm h-100">
+                <img src="~/images/person2.jpg" class="card-img-top rounded-circle mx-auto mt-3" style="width: 100px; height: 100px; object-fit: cover;" alt="Miembro 2">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">Gianluca Cejas</h5>
+                    <p class="card-text text-muted">Diseño de interfaz, documentación y testing funcional.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Pie -->
+<section class="text-center py-4 bg-light mt-5">
+    <p class="text-muted mb-0">© 2025 OWLEDGE — Proyecto académico desarrollado con fines educativos.</p>
+</section>
