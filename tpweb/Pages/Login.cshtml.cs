@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using tpweb.Data;
 using Microsoft.EntityFrameworkCore;
+using tpweb.Data;
 using tpweb.Modelos.Clase_Persona;
 
 namespace tpweb.Pages
@@ -28,7 +28,6 @@ namespace tpweb.Pages
             var rol = HttpContext.Session.GetString("Rol");
             if (!string.IsNullOrEmpty(rol))
             {
-                // Si ya hay sesión, redirige al dashboard
                 return RedirectToPage("/Dashboard");
             }
             return Page();
@@ -50,6 +49,8 @@ namespace tpweb.Pages
             {
                 HttpContext.Session.SetString("Rol", usuario.Rol.Nombre);
                 HttpContext.Session.SetString("UsuarioNombre", usuario.UsuarioNombre);
+                HttpContext.Session.SetInt32("UsuarioId", usuario.IdUsuario);
+
                 return RedirectToPage("/Dashboard");
             }
 
@@ -60,6 +61,8 @@ namespace tpweb.Pages
             {
                 HttpContext.Session.SetString("Rol", "Alumno");
                 HttpContext.Session.SetString("UsuarioNombre", alumno.Usuario);
+                HttpContext.Session.SetInt32("UsuarioId", alumno.IdAlumno);
+
                 return RedirectToPage("/Dashboard");
             }
 
