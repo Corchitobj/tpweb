@@ -3,13 +3,19 @@
 
 @{
     ViewData["Title"] = "Listado de Materias";
+
+    // Obtener el rol desde la sesión
+    var rol = Context.Session.GetString("Rol");
 }
 
 <h2 class="mb-4">Listado de Materias</h2>
 
-<p>
-    <a asp-page="Create" class="btn btn-primary mb-3">Registrar Materia</a>
-</p>
+@if (rol == "Administrador")
+{
+    <p>
+        <a asp-page="Create" class="btn btn-primary mb-3">Registrar Materia</a>
+    </p>
+}
 
 <table class="table table-bordered table-hover">
     <thead class="table-primary">
@@ -17,7 +23,7 @@
             <th>Nombre</th>
             <th>Curso</th>
             <th>Docente</th>
-            <th style="width: 180px;">Acciones</th>
+            <th style="width: 220px;">Acciones</th>
         </tr>
     </thead>
     <tbody>
@@ -28,9 +34,19 @@
                 <td>@item.Curso?.Nombre</td>
                 <td>@(item.Docente != null ? item.Docente.Nombre + " " + item.Docente.Apellido : "Sin docente")</td>
                 <td>
-                    <a asp-page="./Edit" asp-route-id="@item.IdMateria" class="btn btn-outline-warning btn-sm">Editar</a>
-                    <a asp-page="./Details" asp-route-id="@item.IdMateria" class="btn btn-outline-info btn-sm ms-1">Detalles</a>
-                    <a asp-page="./Delete" asp-route-id="@item.IdMateria" class="btn btn-outline-danger btn-sm ms-1">Eliminar</a>
+                    @* Botones visibles solo para Administrador *@
+                    @if (rol == "Administrador")
+                    {
+                        <a asp-page="./Edit" asp-route-id="@item.IdMateria" class="btn btn-outline-warning btn-sm">Editar</a>
+                        <a asp-page="./Details" asp-route-id="@item.IdMateria" class="btn btn-outline-info btn-sm ms-1">Detalles</a>
+                        <a asp-page="./Delete" asp-route-id="@item.IdMateria" class="btn btn-outline-danger btn-sm ms-1">Eliminar</a>
+                    }
+
+                    @* Botón visible solo para Docente *@
+                    @if (rol == "Docente")
+                    {
+                        <a asp-page="/Materias/Alumnos" asp-route-materiaId="@item.IdMateria" class="btn btn-outline-info btn-sm">Ver alumnos</a>
+                    }
                 </td>
             </tr>
         }

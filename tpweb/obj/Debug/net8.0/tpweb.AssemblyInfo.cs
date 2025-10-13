@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("tpweb")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b9e2a5d389705a99bab40fa11cb0c1c15e647450")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d5ad96b33e0350982a8720b5442bebd1555e98c0")]
 [assembly: System.Reflection.AssemblyProductAttribute("tpweb")]
 [assembly: System.Reflection.AssemblyTitleAttribute("tpweb")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

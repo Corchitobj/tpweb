@@ -3,20 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\gianl\\Downloads\\tpweb\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{12892A49-22EB-4818-9B50-F4839D069772}|tpweb\\tpweb.csproj|c:\\users\\gianl\\downloads\\tpweb\\tpweb\\pages\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{12892A49-22EB-4818-9B50-F4839D069772}|tpweb\\tpweb.csproj|solutionrelative:tpweb\\pages\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{12892A49-22EB-4818-9B50-F4839D069772}|tpweb\\tpweb.csproj|c:\\users\\gianl\\downloads\\tpweb\\tpweb\\pages\\materias\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{12892A49-22EB-4818-9B50-F4839D069772}|tpweb\\tpweb.csproj|solutionrelative:tpweb\\pages\\materias\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{12892A49-22EB-4818-9B50-F4839D069772}|tpweb\\tpweb.csproj|c:\\users\\gianl\\downloads\\tpweb\\tpweb\\pages\\login.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{12892A49-22EB-4818-9B50-F4839D069772}|tpweb\\tpweb.csproj|solutionrelative:tpweb\\pages\\login.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{12892A49-22EB-4818-9B50-F4839D069772}|tpweb\\tpweb.csproj|c:\\users\\gianl\\downloads\\tpweb\\tpweb\\pages\\dashboard.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{12892A49-22EB-4818-9B50-F4839D069772}|tpweb\\tpweb.csproj|solutionrelative:tpweb\\pages\\dashboard.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{12892A49-22EB-4818-9B50-F4839D069772}|tpweb\\tpweb.csproj|c:\\users\\gianl\\downloads\\tpweb\\tpweb\\pages\\tareas\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{12892A49-22EB-4818-9B50-F4839D069772}|tpweb\\tpweb.csproj|solutionrelative:tpweb\\pages\\tareas\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{12892A49-22EB-4818-9B50-F4839D069772}|tpweb\\tpweb.csproj|c:\\users\\gianl\\downloads\\tpweb\\tpweb\\pages\\materias\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12892A49-22EB-4818-9B50-F4839D069772}|tpweb\\tpweb.csproj|solutionrelative:tpweb\\pages\\materias\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,58 +18,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Dashboard.cshtml.cs",
-              "DocumentMoniker": "C:\\Users\\gianl\\Downloads\\tpweb\\tpweb\\Pages\\Dashboard.cshtml.cs",
-              "RelativeDocumentMoniker": "tpweb\\Pages\\Dashboard.cshtml.cs",
-              "ToolTip": "C:\\Users\\gianl\\Downloads\\tpweb\\tpweb\\Pages\\Dashboard.cshtml.cs",
-              "RelativeToolTip": "tpweb\\Pages\\Dashboard.cshtml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-13T02:44:34.688Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Login.cshtml.cs",
-              "DocumentMoniker": "C:\\Users\\gianl\\Downloads\\tpweb\\tpweb\\Pages\\Login.cshtml.cs",
-              "RelativeDocumentMoniker": "tpweb\\Pages\\Login.cshtml.cs",
-              "ToolTip": "C:\\Users\\gianl\\Downloads\\tpweb\\tpweb\\Pages\\Login.cshtml.cs",
-              "RelativeToolTip": "tpweb\\Pages\\Login.cshtml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAA==",
+              "Title": "Index.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\gianl\\Downloads\\tpweb\\tpweb\\Pages\\Materias\\Index.cshtml.cs",
+              "RelativeDocumentMoniker": "tpweb\\Pages\\Materias\\Index.cshtml.cs",
+              "ToolTip": "C:\\Users\\gianl\\Downloads\\tpweb\\tpweb\\Pages\\Materias\\Index.cshtml.cs",
+              "RelativeToolTip": "tpweb\\Pages\\Materias\\Index.cshtml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-13T02:34:27.744Z",
+              "WhenOpened": "2025-10-13T15:53:44.247Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\gianl\\Downloads\\tpweb\\tpweb\\Pages\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "tpweb\\Pages\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\gianl\\Downloads\\tpweb\\tpweb\\Pages\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "tpweb\\Pages\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADsAAABoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-13T02:11:04.756Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\gianl\\Downloads\\tpweb\\tpweb\\Pages\\Tareas\\Index.cshtml",
-              "RelativeDocumentMoniker": "tpweb\\Pages\\Tareas\\Index.cshtml",
-              "ToolTip": "C:\\Users\\gianl\\Downloads\\tpweb\\tpweb\\Pages\\Tareas\\Index.cshtml",
-              "RelativeToolTip": "tpweb\\Pages\\Tareas\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACsAAAABAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\Users\\gianl\\Downloads\\tpweb\\tpweb\\Pages\\Materias\\Index.cshtml",
+              "RelativeDocumentMoniker": "tpweb\\Pages\\Materias\\Index.cshtml",
+              "ToolTip": "C:\\Users\\gianl\\Downloads\\tpweb\\tpweb\\Pages\\Materias\\Index.cshtml*",
+              "RelativeToolTip": "tpweb\\Pages\\Materias\\Index.cshtml*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-12T23:29:27.142Z",
+              "WhenOpened": "2025-10-13T15:53:43.342Z",
               "EditorCaption": ""
             }
           ]

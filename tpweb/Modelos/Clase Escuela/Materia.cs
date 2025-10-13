@@ -10,10 +10,10 @@ namespace tpweb.Modelos.Clase_Escuela
         public string Nombre { get; set; } = string.Empty;
 
         public int CursoId { get; set; }
-        public Curso Curso { get; set; } = null!;
+        public Curso? Curso { get; set; } = null!;
 
         public int DocenteId { get; set; }
-        public Usuario Docente { get; set; } = null!;
+        public Usuario? Docente { get; set; } = null!;
 
         public List<MateriaAlumno> MateriaAlumnos { get; set; } = new();
         public List<Asistencia> Asistencias { get; set; } = new();

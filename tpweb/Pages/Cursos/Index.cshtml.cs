@@ -25,7 +25,7 @@ namespace tpweb.Pages.Cursos
         {
             Cursos = _context.Cursos
                 .Include(c => c.Materias)
-                    .ThenInclude(m => m.Docente)
+                .ThenInclude(m => m.Docente)
                 .OrderBy(c => c.Id)
                 .Select(c => new CursoViewModel
                 {
@@ -50,28 +50,41 @@ namespace tpweb.Pages.Cursos
 
         public async Task<IActionResult> OnPostVincularAlumnoAsync(int cursoId, int alumnoId)
         {
-            // Buscar una materia cualquiera del curso (puedes ajustar la lógica si tienes varias materias por curso)
-            var materia = await _context.Materias.FirstOrDefaultAsync(m => m.CursoId == cursoId);
-            if (materia == null)
-                return NotFound();
+            // Obtener todas las materias del curso
+            var materiasDelCurso = await _context.Materias
+                .Where(m => m.CursoId == cursoId)
+                .ToListAsync();
 
-            var existe = await _context.MateriasAlumnos
-                .AnyAsync(ma => ma.MateriaId == materia.IdMateria && ma.AlumnoId == alumnoId);
+            if (!materiasDelCurso.Any())
+                return NotFound("No hay materias asociadas a este curso.");
 
-            if (!existe)
-            {
-                _context.MateriasAlumnos.Add(new MateriaAlumno
+            // Obtener los IDs de las materias del curso
+            var idsMateriasDelCurso = materiasDelCurso.Select(m => m.IdMateria).ToList();
+
+            // Obtener las vinculaciones existentes del alumno para esas materias
+            var materiasYaVinculadas = await _context.MateriasAlumnos
+                .Where(ma => ma.AlumnoId == alumnoId && idsMateriasDelCurso.Contains(ma.MateriaId))
+                .Select(ma => ma.MateriaId)
+                .ToListAsync();
+
+            // Crear las vinculaciones que faltan
+            var nuevasVinculaciones = idsMateriasDelCurso
+                .Where(id => !materiasYaVinculadas.Contains(id))
+                .Select(id => new MateriaAlumno
                 {
-                    MateriaId = materia.IdMateria,
-                    AlumnoId = alumnoId
-                });
+                    AlumnoId = alumnoId,
+                    MateriaId = id
+                })
+                .ToList();
+
+            if (nuevasVinculaciones.Any())
+            {
+                _context.MateriasAlumnos.AddRange(nuevasVinculaciones);
                 await _context.SaveChangesAsync();
             }
 
             return RedirectToPage();
         }
-
-        
 
         public class CursoViewModel
         {
