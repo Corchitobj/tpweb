@@ -1,0 +1,24 @@
+﻿@page
+@model tpweb.Pages.Materias.AlumnosModel
+
+<h2>Alumnos de la materia</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Usuario</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var alumno in Model.Alumnos)
+        {
+            <tr>
+                <td>@alumno.Nombre</td>
+                <td>@alumno.Apellido</td>
+                <td>@alumno.Usuario</td>
+            </tr>
+        }
+    </tbody>
+</table>

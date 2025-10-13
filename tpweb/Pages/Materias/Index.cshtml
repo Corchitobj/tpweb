@@ -5,7 +5,7 @@
     ViewData["Title"] = "Listado de Materias";
 
     // Obtener el rol desde la sesión
-    var rol = Context.Session.GetString("Rol");
+    var rol = HttpContext.Session.GetString("Rol");
 }
 
 <h2 class="mb-4">Listado de Materias</h2>
@@ -35,7 +35,7 @@
                 <td>@(item.Docente != null ? item.Docente.Nombre + " " + item.Docente.Apellido : "Sin docente")</td>
                 <td>
                     @* Botones visibles solo para Administrador *@
-                    @if (rol == "Administrador")
+                    @if (rol == "Administrador" )
                     {
                         <a asp-page="./Edit" asp-route-id="@item.IdMateria" class="btn btn-outline-warning btn-sm">Editar</a>
                         <a asp-page="./Details" asp-route-id="@item.IdMateria" class="btn btn-outline-info btn-sm ms-1">Detalles</a>
@@ -45,7 +45,7 @@
                     @* Botón visible solo para Docente *@
                     @if (rol == "Docente")
                     {
-                        <a asp-page="/Materias/Alumnos" asp-route-materiaId="@item.IdMateria" class="btn btn-outline-info btn-sm">Ver alumnos</a>
+                        <a asp-page="/Materias/VerAlumnos" asp-route-materiaId="@item.IdMateria" class="btn btn-outline-info btn-sm">Ver alumnos</a>
                     }
                 </td>
             </tr>

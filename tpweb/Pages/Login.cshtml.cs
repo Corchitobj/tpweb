@@ -41,7 +41,6 @@ namespace tpweb.Pages
                 return Page();
             }
 
-            // Buscar usuario docente, preceptor o administrador
             var usuario = _context.Usuarios
                 .Include(u => u.Rol)
                 .FirstOrDefault(u => u.UsuarioNombre == UsuarioNombre && u.Contraseña == Contraseña);
@@ -55,7 +54,6 @@ namespace tpweb.Pages
                 return RedirectToPage("/Index");
             }
 
-            // Buscar usuario alumno
             var alumno = _context.Alumnos
                 .FirstOrDefault(a => a.Usuario == UsuarioNombre && a.Contraseña == Contraseña);
 
@@ -63,7 +61,7 @@ namespace tpweb.Pages
             {
                 HttpContext.Session.SetString("Rol", "Alumno");
                 HttpContext.Session.SetString("UsuarioNombre", alumno.Usuario);
-                HttpContext.Session.SetInt32("UsuarioId", alumno.IdAlumno);
+                HttpContext.Session.SetInt32("AlumnoId", alumno.IdAlumno);
 
                 return RedirectToPage("/Index");
             }

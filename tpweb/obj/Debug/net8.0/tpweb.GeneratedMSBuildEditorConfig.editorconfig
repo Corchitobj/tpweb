@@ -48,6 +48,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWx1bW5vc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/gianl/Downloads/tpweb/tpweb/Pages/Alumnos/MatAlumnos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWx1bW5vc1xNYXRBbHVtbm9zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/gianl/Downloads/tpweb/tpweb/Pages/Asistencias/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXNpc3RlbmNpYXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -88,18 +92,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRm9ybXVsYXJpb3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gianl/Downloads/tpweb/tpweb/Pages/frmEditar.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcZnJtRWRpdGFyLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/gianl/Downloads/tpweb/tpweb/Pages/frmEliminar.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcZnJtRWxpbWluYXIuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/gianl/Downloads/tpweb/tpweb/Pages/frmMostrar.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcZnJtTW9zdHJhci5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/gianl/Downloads/tpweb/tpweb/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -130,6 +122,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/gianl/Downloads/tpweb/tpweb/Pages/Materias/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWF0ZXJpYXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gianl/Downloads/tpweb/tpweb/Pages/Materias/VerAlumnos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWF0ZXJpYXNcVmVyQWx1bW5vcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/gianl/Downloads/tpweb/tpweb/Pages/Privacy.cshtml]

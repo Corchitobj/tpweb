@@ -128,8 +128,7 @@ namespace tpweb.Data
             modelBuilder.Entity<Rol>().HasData(
               new Rol { IdRol = 1, Nombre = "Administrador" },
               new Rol { IdRol = 2, Nombre = "Docente" },
-              new Rol { IdRol = 3, Nombre = "Preceptor" },
-              new Rol { IdRol = 4, Nombre = "Alumno" }
+              new Rol { IdRol = 3, Nombre = "Preceptor" }
               );
         }
     }

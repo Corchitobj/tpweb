@@ -1,0 +1,36 @@
+﻿@page
+@model tpweb.Pages.MatAlumnos.IndexModel
+
+@{
+    ViewData["Title"] = "Mis Materias";
+    var nombre = HttpContext.Session.GetString("UsuarioNombre");
+}
+
+<h2 class="mb-4">Materias de @nombre</h2>
+
+@if (!Model.Materias.Any())
+{
+    <p class="text-danger">No estás inscripto en ninguna materia.</p>
+}
+else
+{
+    <table class="table table-bordered table-hover">
+        <thead class="table-primary">
+            <tr>
+                <th>Nombre</th>
+                <th>Curso</th>
+                <th>Docente</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Materias)
+            {
+                <tr>
+                    <td>@item.Nombre</td>
+                    <td>@item.Curso?.Nombre</td>
+                    <td>@(item.Docente != null ? item.Docente.Nombre + " " + item.Docente.Apellido : "Sin docente")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

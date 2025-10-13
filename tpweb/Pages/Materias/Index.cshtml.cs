@@ -30,7 +30,7 @@ namespace tpweb.Pages.Materias
                     .Where(m => m.DocenteId == usuarioId.Value)
                     .ToListAsync();
             }
-            else
+            else if (rol == "Administrador" && usuarioId.HasValue)
             {
                 Materia = await _context.Materias
                     .Include(m => m.Curso)
