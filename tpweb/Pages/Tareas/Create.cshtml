@@ -2,47 +2,80 @@
 @model tpweb.Pages.Tareas.CreateModel
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Crear Tarea";
 }
 
-<h1>Create</h1>
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="mb-0">
+                        <i class="bi bi-clipboard-plus"></i>
+                        Crear tarea para @Model.Materia?.Nombre
+                    </h2>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
 
-<h4>Tarea</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Tarea.Titulo" class="control-label"></label>
-                <input asp-for="Tarea.Titulo" class="form-control" />
-                <span asp-validation-for="Tarea.Titulo" class="text-danger"></span>
+                        <!-- Campo oculto para MateriaId -->
+                        <input type="hidden" asp-for="MateriaId" />
+
+                        <!-- Título -->
+                        <div class="mb-3">
+                            <label asp-for="Tarea.Titulo" class="form-label fw-bold">
+                                Título <span class="text-danger">*</span>
+                            </label>
+                            <input asp-for="Tarea.Titulo"
+                                   class="form-control"
+                                   placeholder="Ingrese el título de la tarea"
+                                   maxlength="200" />
+                            <span asp-validation-for="Tarea.Titulo" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Descripción -->
+                        <div class="mb-3">
+                            <label asp-for="Tarea.Descripcion" class="form-label fw-bold">
+                                Descripción <span class="text-danger">*</span>
+                            </label>
+                            <textarea asp-for="Tarea.Descripcion"
+                                      class="form-control"
+                                      rows="5"
+                                      placeholder="Ingrese la descripción de la tarea"
+                                      maxlength="1000"></textarea>
+                            <span asp-validation-for="Tarea.Descripcion" class="text-danger small"></span>
+                            <small class="form-text text-muted">Máximo 1000 caracteres</small>
+                        </div>
+
+                        <!-- Fecha de Entrega -->
+                        <div class="mb-3">
+                            <label asp-for="Tarea.FechaEntrega" class="form-label fw-bold">
+                                Fecha de Entrega <span class="text-danger">*</span>
+                            </label>
+                            <input asp-for="Tarea.FechaEntrega"
+                                   type="date"
+                                   class="form-control"
+                                   min="@DateTime.Today.ToString("yyyy-MM-dd")" />
+                            <span asp-validation-for="Tarea.FechaEntrega" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Botones -->
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+                            <a asp-page="/Materias/Index" class="btn btn-secondary">
+                                <i class="bi bi-x-circle"></i> Cancelar
+                            </a>
+                            <button type="submit" class="btn btn-success">
+                                <i class="bi bi-check-circle"></i> Crear Tarea
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Tarea.Descripcion" class="control-label"></label>
-                <input asp-for="Tarea.Descripcion" class="form-control" />
-                <span asp-validation-for="Tarea.Descripcion" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Tarea.FechaEntrega" class="control-label"></label>
-                <input asp-for="Tarea.FechaEntrega" class="form-control" />
-                <span asp-validation-for="Tarea.FechaEntrega" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Tarea.MateriaId" class="control-label"></label>
-                <select asp-for="Tarea.MateriaId" class ="form-control" asp-items="ViewBag.MateriaId"></select>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
     </div>
 </div>
 
-<div>
-    <a asp-page="Index">Back to List</a>
-</div>
-
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <partial name="_ValidationScriptsPartial" />
 }

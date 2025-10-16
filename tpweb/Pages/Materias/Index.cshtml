@@ -22,8 +22,10 @@
         <tr>
             <th>Nombre</th>
             <th>Curso</th>
+            @if(rol == "Administrador" || rol == "Preceptor"){
             <th>Docente</th>
-            <th style="width: 220px;">Acciones</th>
+            }
+            <th>Acciones</th>
         </tr>
     </thead>
     <tbody>
@@ -32,7 +34,10 @@
             <tr>
                 <td>@item.Nombre</td>
                 <td>@item.Curso?.Nombre</td>
+                @if(rol == "Administrador" || rol == "Preceptor")
+                {
                 <td>@(item.Docente != null ? item.Docente.Nombre + " " + item.Docente.Apellido : "Sin docente")</td>
+                }
                 <td>
                     @* Botones visibles solo para Administrador *@
                     @if (rol == "Administrador" )
@@ -46,6 +51,31 @@
                     @if (rol == "Docente")
                     {
                         <a asp-page="/Materias/VerAlumnos" asp-route-materiaId="@item.IdMateria" class="btn btn-outline-info btn-sm">Ver alumnos</a>
+                        <a asp-page="/Asistencias/Index" asp-route-materiaId="@item.IdMateria" class="btn btn-outline-success btn-sm ms-1">Asistencia</a>
+                        <a asp-page="/Asistencias/Ver" asp-route-materiaId="@item.IdMateria" class="btn btn-outline-secondary btn-sm ms-1">Historial</a>
+                        <button type="button" class="btn btn-outline-primary btn-sm ms-1" data-bs-toggle="modal" data-bs-target="#tareasModal@item.IdMateria">Tareas</button>
+
+
+                        <div class="modal fade" id="tareasModal@item.IdMateria" tabindex="-1" aria-labelledby="tareasModalLabel@item.IdMateria" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="tareasModalLabel@item.IdMateria">Opciones de Tareas</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="d-grid gap-2">
+                                            <a class="btn btn-primary" asp-page="/Tareas/Create" asp-route-materiaId="@item.IdMateria">Crear tarea</a>
+                                            <a class="btn btn-primary" asp-page="/Tareas/Index" asp-route-materiaId="@item.IdMateria">Modificar tareas</a>
+                                            <a class="btn btn-primary" asp-page="/Tareas/Corregir" asp-route-materiaId="@item.IdMateria">Corregir entregas</a>
+                                            <a class="btn btn-primary" asp-page="/Tareas/Historial" asp-route-materiaId="@item.IdMateria">Historial / Archivo</a>
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    
                     }
                 </td>
             </tr>

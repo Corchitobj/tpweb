@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\gianl\\Downloads\\tpweb\\tpweb\\tpweb.csproj": {}
+    "C:\\Users\\gianl\\OneDrive\\Escritorio\\tpweb\\tpweb\\tpweb.csproj": {}
   },
   "projects": {
-    "C:\\Users\\gianl\\Downloads\\tpweb\\tpweb\\tpweb.csproj": {
+    "C:\\Users\\gianl\\OneDrive\\Escritorio\\tpweb\\tpweb\\tpweb.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\gianl\\Downloads\\tpweb\\tpweb\\tpweb.csproj",
+        "projectUniqueName": "C:\\Users\\gianl\\OneDrive\\Escritorio\\tpweb\\tpweb\\tpweb.csproj",
         "projectName": "tpweb",
-        "projectPath": "C:\\Users\\gianl\\Downloads\\tpweb\\tpweb\\tpweb.csproj",
+        "projectPath": "C:\\Users\\gianl\\OneDrive\\Escritorio\\tpweb\\tpweb\\tpweb.csproj",
         "packagesPath": "C:\\Users\\gianl\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\gianl\\Downloads\\tpweb\\tpweb\\obj\\",
+        "outputPath": "C:\\Users\\gianl\\OneDrive\\Escritorio\\tpweb\\tpweb\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -88,7 +88,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

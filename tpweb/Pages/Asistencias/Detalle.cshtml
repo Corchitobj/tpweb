@@ -1,0 +1,27 @@
+﻿@page
+@model tpweb.Pages.Asistencias.DetalleModel
+
+<h2>Detalle de asistencia - @Model.MateriaNombre</h2>
+<h5>Fecha: @Model.Asistencia.Fecha.ToString("dd/MM/yyyy")</h5>
+
+<table class="table table-bordered">
+    <thead class="table-primary">
+        <tr>
+            <th>Alumno</th>
+            <th>Presente</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Alumnos)
+        {
+            <tr>
+                <td>@item.Alumno.Nombre @item.Alumno.Apellido</td>
+                <td>
+                    @(item.Presente ? "✅ Sí" : "❌ No")
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-page="/Asistencias/Ver" asp-route-materiaId="@Model.Asistencia.MateriaId" class="btn btn-secondary">Volver</a>

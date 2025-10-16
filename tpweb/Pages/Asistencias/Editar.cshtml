@@ -1,7 +1,7 @@
 ﻿@page
-@model tpweb.Pages.Asistencias.IndexModel
+@model tpweb.Pages.Asistencias.EditarModel
 
-<h2>Tomar asistencia - Materia @Model.MateriaId</h2>
+<h2>Editar asistencia - Materia @Model.MateriaNombre</h2>
 
 <form method="post">
     <table class="table table-bordered">
@@ -12,22 +12,20 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var alumno in Model.Alumnos)
+            @foreach (var aa in Model.AsistenciasAlumnos)
             {
                 <tr>
-                    <td>@alumno.Nombre @alumno.Apellido</td>
+                    <td>@aa.Alumno.Nombre @aa.Alumno.Apellido</td>
                     <td>
-                        <input type="checkbox" name="presentes" value="@alumno.IdAlumno" />
+                        <input type="checkbox" name="presentes" value="@aa.AlumnoId" @(aa.Presente ? "checked" : "") />
                     </td>
                 </tr>
             }
         </tbody>
     </table>
-
-    <button type="submit" class="btn btn-success">Guardar asistencia</button>
+    <button type="submit" class="btn btn-success">Guardar cambios</button>
 </form>
 
 @section Scripts {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 }
-
