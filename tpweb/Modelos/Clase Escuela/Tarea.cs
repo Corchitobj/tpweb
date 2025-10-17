@@ -10,6 +10,7 @@ namespace tpweb.Modelos.Clase_Escuela
         public string Titulo { get; set; }
         public string Descripcion { get; set; } = string.Empty;
         public DateTime FechaEntrega { get; set; }
+        public bool Archivada { get; set; } = false;
 
         public int MateriaId { get; set; }
         public Materia Materia { get; set; } = null!;

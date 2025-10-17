@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using tpweb.Data;
 using tpweb.Modelos.Clase_Escuela;
@@ -13,66 +8,73 @@ namespace tpweb.Pages.Tareas
 {
     public class EditModel : PageModel
     {
-        private readonly tpweb.Data.AppDbContext _context;
+        private readonly AppDbContext _context;
 
-        public EditModel(tpweb.Data.AppDbContext context)
+        public EditModel(AppDbContext context)
         {
             _context = context;
         }
 
         [BindProperty]
-        public Tarea Tarea { get; set; } = default!;
+        public Tarea Tarea { get; set; } = new();
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public Materia? Materia { get; set; }
+
+        public async Task<IActionResult> OnGetAsync(int id)
         {
-            if (id == null)
+            Tarea = await _context.Tareas
+                .Include(t => t.Materia)
+                .FirstOrDefaultAsync(t => t.Id == id);
+
+            if (Tarea == null)
             {
-                return NotFound();
+                TempData["ErrorMessage"] = "Tarea no encontrada.";
+                return RedirectToPage("/Materias/Index");
             }
 
-            var tarea =  await _context.Tareas.FirstOrDefaultAsync(m => m.Id == id);
-            if (tarea == null)
-            {
-                return NotFound();
-            }
-            Tarea = tarea;
-           ViewData["MateriaId"] = new SelectList(_context.Materias, "IdMateria", "IdMateria");
+            Materia = Tarea.Materia;
             return Page();
         }
 
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more information, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
+            // Remover validación de navegación
+            ModelState.Remove("Tarea.Materia");
+
             if (!ModelState.IsValid)
             {
+                Materia = await _context.Materias
+                    .FirstOrDefaultAsync(m => m.IdMateria == Tarea.MateriaId);
                 return Page();
             }
 
-            _context.Attach(Tarea).State = EntityState.Modified;
+            var tareaExistente = await _context.Tareas
+                .FirstOrDefaultAsync(t => t.Id == Tarea.Id);
+
+            if (tareaExistente == null)
+            {
+                TempData["ErrorMessage"] = "La tarea que intenta editar no existe.";
+                return RedirectToPage("/Materias/Index");
+            }
+
+            // Actualizar los campos editables
+            tareaExistente.Titulo = Tarea.Titulo;
+            tareaExistente.Descripcion = Tarea.Descripcion;
+            tareaExistente.FechaEntrega = Tarea.FechaEntrega;
 
             try
             {
                 await _context.SaveChangesAsync();
+                TempData["SuccessMessage"] = "Tarea actualizada correctamente.";
+                return RedirectToPage("/Tareas/Index", new { materiaId = tareaExistente.MateriaId });
             }
-            catch (DbUpdateConcurrencyException)
+            catch (Exception)
             {
-                if (!TareaExists(Tarea.Id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                ModelState.AddModelError(string.Empty, "Error al actualizar la tarea.");
+                Materia = await _context.Materias
+                    .FirstOrDefaultAsync(m => m.IdMateria == Tarea.MateriaId);
+                return Page();
             }
-
-            return RedirectToPage("./Index");
-        }
-
-        private bool TareaExists(int id)
-        {
-            return _context.Tareas.Any(e => e.Id == id);
         }
     }
 }

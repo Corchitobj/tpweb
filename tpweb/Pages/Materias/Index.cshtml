@@ -22,8 +22,9 @@
         <tr>
             <th>Nombre</th>
             <th>Curso</th>
-            @if(rol == "Administrador" || rol == "Preceptor"){
-            <th>Docente</th>
+            @if (rol == "Administrador" || rol == "Preceptor")
+            {
+                <th>Docente</th>
             }
             <th>Acciones</th>
         </tr>
@@ -34,48 +35,108 @@
             <tr>
                 <td>@item.Nombre</td>
                 <td>@item.Curso?.Nombre</td>
-                @if(rol == "Administrador" || rol == "Preceptor")
+                @if (rol == "Administrador" || rol == "Preceptor")
                 {
-                <td>@(item.Docente != null ? item.Docente.Nombre + " " + item.Docente.Apellido : "Sin docente")</td>
+                    <td>@(item.Docente != null ? item.Docente.Nombre + " " + item.Docente.Apellido : "Sin docente")</td>
                 }
                 <td>
                     @* Botones visibles solo para Administrador *@
-                    @if (rol == "Administrador" )
+                    @if (rol == "Administrador")
                     {
                         <a asp-page="./Edit" asp-route-id="@item.IdMateria" class="btn btn-outline-warning btn-sm">Editar</a>
                         <a asp-page="./Details" asp-route-id="@item.IdMateria" class="btn btn-outline-info btn-sm ms-1">Detalles</a>
                         <a asp-page="./Delete" asp-route-id="@item.IdMateria" class="btn btn-outline-danger btn-sm ms-1">Eliminar</a>
                     }
 
-                    @* Botón visible solo para Docente *@
+                    @* Botones visibles solo para Docente *@
                     @if (rol == "Docente")
                     {
-                        <a asp-page="/Materias/VerAlumnos" asp-route-materiaId="@item.IdMateria" class="btn btn-outline-info btn-sm">Ver alumnos</a>
-                        <a asp-page="/Asistencias/Index" asp-route-materiaId="@item.IdMateria" class="btn btn-outline-success btn-sm ms-1">Asistencia</a>
-                        <a asp-page="/Asistencias/Ver" asp-route-materiaId="@item.IdMateria" class="btn btn-outline-secondary btn-sm ms-1">Historial</a>
-                        <button type="button" class="btn btn-outline-primary btn-sm ms-1" data-bs-toggle="modal" data-bs-target="#tareasModal@item.IdMateria">Tareas</button>
+                        <a asp-page="/Materias/VerAlumnos" asp-route-materiaId="@item.IdMateria" class="btn btn-outline-info btn-sm">Alumnos</a>
 
+                        <!-- Nuevo botón modal para Asistencia -->
+                        <button type="button"
+                                class="btn btn-outline-success btn-sm ms-1"
+                                data-bs-toggle="modal"
+                                data-bs-target="#asistenciaModal@item.IdMateria">
+                            Asistencia
+                        </button>
 
-                        <div class="modal fade" id="tareasModal@item.IdMateria" tabindex="-1" aria-labelledby="tareasModalLabel@item.IdMateria" aria-hidden="true">
+                        <!-- Modal Asistencia -->
+                        <div class="modal fade" id="asistenciaModal@item.IdMateria" tabindex="-1"
+                             aria-labelledby="asistenciaModalLabel@item.IdMateria" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="tareasModalLabel@item.IdMateria">Opciones de Tareas</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                                    <div class="modal-header bg-success text-white">
+                                        <h5 class="modal-title" id="asistenciaModalLabel@item.IdMateria">
+                                            Opciones de Asistencia
+                                        </h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Cerrar"></button>
                                     </div>
                                     <div class="modal-body">
                                         <div class="d-grid gap-2">
-                                            <a class="btn btn-primary" asp-page="/Tareas/Create" asp-route-materiaId="@item.IdMateria">Crear tarea</a>
-                                            <a class="btn btn-primary" asp-page="/Tareas/Index" asp-route-materiaId="@item.IdMateria">Modificar tareas</a>
-                                            <a class="btn btn-primary" asp-page="/Tareas/Corregir" asp-route-materiaId="@item.IdMateria">Corregir entregas</a>
-                                            <a class="btn btn-primary" asp-page="/Tareas/Historial" asp-route-materiaId="@item.IdMateria">Historial / Archivo</a>
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                            <a class="btn btn-success"
+                                               asp-page="/Asistencias/Index"
+                                               asp-route-materiaId="@item.IdMateria">
+                                                Tomar asistencia
+                                            </a>
+                                            <a class="btn btn-secondary"
+                                               asp-page="/Asistencias/Ver"
+                                               asp-route-materiaId="@item.IdMateria">
+                                                Historial
+                                            </a>
+                                            <button type="button"
+                                                    class="btn btn-outline-danger"
+                                                    data-bs-dismiss="modal">
+                                                Cancelar
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    
+
+                        <!-- Modal Tareas -->
+                        <button type="button"
+                                class="btn btn-outline-primary btn-sm ms-1"
+                                data-bs-toggle="modal"
+                                data-bs-target="#tareasModal@item.IdMateria">
+                            Tareas
+                        </button>
+
+                        <div class="modal fade" id="tareasModal@item.IdMateria" tabindex="-1"
+                             aria-labelledby="tareasModalLabel@item.IdMateria" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header bg-primary text-white">
+                                        <h5 class="modal-title" id="tareasModalLabel@item.IdMateria">
+                                            Opciones de Tareas
+                                        </h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Cerrar"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="d-grid gap-2">
+                                            <a class="btn btn-primary"
+                                               asp-page="/Tareas/Create"
+                                               asp-route-materiaId="@item.IdMateria">
+                                                Crear tarea
+                                            </a>
+                                            <a class="btn btn-primary"
+                                               asp-page="/Tareas/Index"
+                                               asp-route-materiaId="@item.IdMateria">
+                                                Ver tareas
+                                            </a>
+                                            <button type="button"
+                                                    class="btn btn-outline-secondary"
+                                                    data-bs-dismiss="modal">
+                                                Cancelar
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     }
                 </td>
             </tr>

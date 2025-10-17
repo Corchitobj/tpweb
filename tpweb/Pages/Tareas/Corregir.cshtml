@@ -1,0 +1,79 @@
+﻿@page "{tareaId:int}"
+@model tpweb.Pages.Tareas.CorregirModel
+
+<h2>Corregir Tarea: @Model.Tarea?.Titulo</h2>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        @TempData["SuccessMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        @TempData["ErrorMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+<table class="table table-bordered table-hover mt-3">
+    <thead class="table-primary">
+        <tr>
+            <th>Alumno</th>
+            <th>Estado Entrega</th>
+            <th>Nota</th>
+            <th>Opciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ta in Model.TareasAlumnos)
+        {
+            <tr>
+                <td>@ta.Alumno.Nombre @ta.Alumno.Apellido</td>
+                <td>@(ta.EstadoEntrega ? "Entregado" : "No entregado")</td>
+                <td>@(ta.Nota.HasValue? ta.Nota.ToString() : "-")</td>
+                <td>
+                    @if (ta.Nota == null)
+                    {
+                        <a asp-page="/Tareas/CalificarTarea"
+                           asp-route-tareaId="@ta.TareaId"
+                           asp-route-alumnoId="@ta.AlumnoId"
+                           class="btn btn-sm btn-outline-primary">
+                            Corregir
+                        </a>
+                    }
+                    else
+                    {
+                        <a asp-page="/Tareas/CalificarTarea"
+                           asp-route-tareaId="@ta.TareaId"
+                           asp-route-alumnoId="@ta.AlumnoId"
+                           class="btn btn-sm btn-outline-warning"
+                           onclick="return confirm('Esta acción permitirá editar la nota del alumno. ¿Desea continuar?');">
+                            Editar Nota
+                        </a>
+                    }
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    <script>
+        // Espera 2 segundos y hace desaparecer el alert con fade
+        setTimeout(() => {
+            const alert = document.querySelector('.alert');
+            if (alert) {
+                alert.classList.remove('show'); // activa la animación fade
+                alert.classList.add('fade');
+                setTimeout(() => {
+                    alert.remove(); // lo elimina del DOM
+                }, 500); // espera a que termine la animación
+            }
+        }, 2000); // 2 segundos antes de cerrarse
+    </script>
+}
