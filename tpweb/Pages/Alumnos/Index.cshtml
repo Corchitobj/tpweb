@@ -7,10 +7,33 @@
 
 <h2 class="mb-4">Listado de Alumnos</h2>
 
-<p>
-    <a asp-page="Create" class="btn btn-primary mb-3">Registrar Alumno</a>
-</p>
+<div class="mb-3">
+    <a asp-page="Create" class="btn btn-primary">Registrar Alumno</a>
+</div>
 
+<!-- 🔍 Filtros -->
+<form method="get" class="mb-4">
+    <div class="row g-2">
+        <div class="col-md-6">
+            <input type="text" name="FiltroTexto" value="@Model.FiltroTexto" class="form-control form-control-sm" placeholder="Buscar por nombre o apellido..." />
+        </div>
+        <div class="col-md-4">
+            <select name="FiltroCurso" class="form-select form-select-sm">
+                <option value="">Todos los cursos</option>
+                <option value="Primer año" selected="@("Primer año" == Model.FiltroCurso)">Primer año</option>
+                <option value="Segundo año" selected="@("Segundo año" == Model.FiltroCurso)">Segundo año</option>
+                <option value="Tercer año" selected="@("Tercer año" == Model.FiltroCurso)">Tercer año</option>
+                <option value="Cuarto año" selected="@("Cuarto año" == Model.FiltroCurso)">Cuarto año</option>
+                <option value="Quinto año" selected="@("Quinto año" == Model.FiltroCurso)">Quinto año</option>
+            </select>
+        </div>
+        <div class="col-md-2">
+            <button type="submit" class="btn btn-outline-primary btn-sm w-100">Filtrar</button>
+        </div>
+    </div>
+</form>
+
+<!-- 📋 Tabla de alumnos -->
 <table class="table table-bordered table-hover">
     <thead class="table-primary">
         <tr>
@@ -18,6 +41,7 @@
             <th>Nombre</th>
             <th>DNI</th>
             <th>Mail</th>
+            <th>Curso</th>
             <th>Usuario</th>
             <th style="width: 180px;">Acciones</th>
         </tr>
@@ -30,17 +54,48 @@
                 <td>@item.Nombre</td>
                 <td>@item.Dni</td>
                 <td>@item.Mail</td>
+                <td>
+                    @{
+                        var cursos = item.MateriaAlumnos
+                            .Select(ma => ma.Materia?.Curso?.Nombre)
+                            .Where(nombre => !string.IsNullOrEmpty(nombre))
+                            .Distinct()
+                            .ToList();
+                    }
+                    @if (cursos.Any())
+                    {
+                        foreach (var curso in cursos)
+                        {
+                            <span class="badge bg-secondary me-1">@curso</span>
+                        }
+                    }
+                    else
+                    {
+                        <span class="text-muted">Sin vincular</span>
+                    }
+                </td>
                 <td>@item.Usuario</td>
                 <td>
-                    <a asp-page="./Edit" asp-route-id="@item.IdAlumno" class="btn btn-outline-warning btn-sm">Editar</a>
-                    <a asp-page="./Details" asp-route-id="@item.IdAlumno" class="btn btn-outline-info btn-sm ms-1">Detalles</a>
-                    <a asp-page="./Delete" asp-route-id="@item.IdAlumno" class="btn btn-outline-danger btn-sm ms-1">Eliminar</a>
+                    <div class="d-flex flex-wrap gap-1">
+                        <a asp-page="./Edit" asp-route-id="@item.IdAlumno" class="btn btn-outline-warning btn-sm">Editar</a>
+                        <a asp-page="./Details" asp-route-id="@item.IdAlumno" class="btn btn-outline-info btn-sm">Detalles</a>
+                        <a asp-page="./Delete" asp-route-id="@item.IdAlumno" class="btn btn-outline-danger btn-sm">Eliminar</a>
+                        <a asp-page="./Asistencias" asp-route-id="@item.IdAlumno" class="btn btn-outline-success btn-sm">Asistencias</a>
+                    </div>
                 </td>
+
+
             </tr>
         }
     </tbody>
 </table>
 
+@if (!Model.Alumno.Any())
+{
+    <div class="alert alert-warning mt-3">No se encontraron alumnos que coincidan con los filtros.</div>
+}
+
 @section Scripts {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 }
+

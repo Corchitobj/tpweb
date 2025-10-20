@@ -19,13 +19,43 @@ namespace tpweb.Pages.Alumnos
             _context = context;
         }
 
-        public IList<Alumno> Alumno { get;set; } = default!;
+        [BindProperty(SupportsGet = true)]
+        public string? FiltroTexto { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+        public string? FiltroCurso { get; set; }
+
+        public IList<Alumno> Alumno { get; set; } = default!;
 
         public async Task OnGetAsync()
         {
-            Alumno = await _context.Alumnos
+            var query = _context.Alumnos
+                .Include(a => a.MateriaAlumnos)
+                    .ThenInclude(ma => ma.Materia)
+                        .ThenInclude(m => m.Curso)
+                .AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(FiltroTexto))
+            {
+                query = query.Where(a =>
+                    a.Nombre.Contains(FiltroTexto) ||
+                    a.Apellido.Contains(FiltroTexto));
+            }
+
+            if (!string.IsNullOrWhiteSpace(FiltroCurso))
+            {
+                query = query.Where(a =>
+                    a.MateriaAlumnos.Any(ma =>
+                        ma.Materia != null &&
+                        ma.Materia.Curso != null &&
+                        ma.Materia.Curso.Nombre == FiltroCurso));
+            }
+
+            Alumno = await query
                 .OrderBy(a => a.Apellido)
                 .ToListAsync();
         }
     }
+
+
 }

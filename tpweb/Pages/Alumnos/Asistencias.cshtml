@@ -1,0 +1,38 @@
+﻿@page "{id:int}"
+@model tpweb.Pages.Alumnos.AsistenciasModel
+
+@{
+    ViewData["Title"] = "Asistencias de " + Model.Alumno.Nombre + " " + Model.Alumno.Apellido;
+}
+
+<h3 class="mb-4">Asistencias de @Model.Alumno.Nombre @Model.Alumno.Apellido</h3>
+
+<form method="post" asp-page-handler="Actualizar">
+    <table class="table table-bordered table-hover">
+        <thead class="table-light">
+            <tr>
+                <th>Fecha</th>
+                <th>Materia</th>
+                <th>Presente</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.AsistenciasDelAlumno.Count; i++)
+            {
+                var asistencia = Model.AsistenciasDelAlumno[i];
+                <tr>
+                    <td>@asistencia.Asistencia.Fecha.ToShortDateString()</td>
+                    <td>@asistencia.Asistencia.Materia.Nombre</td>
+                    <td>
+                        <input type="hidden" name="asistenciasActualizadas[@i].AsistenciaId" value="@asistencia.AsistenciaId" />
+                        <input type="hidden" name="asistenciasActualizadas[@i].AlumnoId" value="@asistencia.AlumnoId" />
+                        <input type="checkbox" name="asistenciasActualizadas[@i].Presente" value="true" @(asistencia.Presente ? "checked" : "") />
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <button type="submit" class="btn btn-primary">Guardar cambios</button>
+    <a asp-page="./Index" class="btn btn-secondary ms-2">Volver</a>
+</form>
+
