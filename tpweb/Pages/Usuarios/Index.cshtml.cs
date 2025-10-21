@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using tpweb.Data;
 using tpweb.Modelos.Clase_Persona;
 
+
 namespace tpweb.Pages.Usuarios
 {
     public class IndexModel : PageModel
@@ -20,24 +21,39 @@ namespace tpweb.Pages.Usuarios
         }
 
         [BindProperty(SupportsGet = true)]
-        public int? RolId { get; set; } // Filtro por tipo de usuario
+        public string? FiltroTexto { get; set; }
 
-        public List<Usuario> Usuario { get; set; }
-        public List<Rol> Roles { get; set; }
+        [BindProperty(SupportsGet = true)]
+        public int? RolId { get; set; }
+
+        public List<Usuario> Usuario { get; set; } = new();
+        public List<Rol> Roles { get; set; } = new();
 
         public async Task OnGetAsync()
         {
             Roles = await _context.Roles.ToListAsync();
 
-            var query = _context.Usuarios.Include(u => u.Rol).AsQueryable();
+            var query = _context.Usuarios
+                .Include(u => u.Rol)
+                .AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(FiltroTexto))
+            {
+                query = query.Where(u =>
+                    u.Nombre.Contains(FiltroTexto) ||
+                    u.Apellido.Contains(FiltroTexto) ||
+                    u.UsuarioNombre.Contains(FiltroTexto));
+            }
 
             if (RolId.HasValue && RolId.Value > 0)
             {
                 query = query.Where(u => u.RolId == RolId.Value);
             }
 
-            Usuario = await query.ToListAsync();
+            Usuario = await query
+                .OrderBy(u => u.Apellido)
+                .ToListAsync();
         }
-
     }
 }
+

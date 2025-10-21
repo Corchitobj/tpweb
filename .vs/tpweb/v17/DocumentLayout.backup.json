@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\User\\Desktop\\tpweb\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{12892A49-22EB-4818-9B50-F4839D069772}|tpweb\\tpweb.csproj|c:\\users\\user\\desktop\\tpweb\\tpweb\\pages\\cursos\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{12892A49-22EB-4818-9B50-F4839D069772}|tpweb\\tpweb.csproj|solutionrelative:tpweb\\pages\\cursos\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{12892A49-22EB-4818-9B50-F4839D069772}|tpweb\\tpweb.csproj|c:\\users\\user\\desktop\\tpweb\\tpweb\\pages\\materias\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{12892A49-22EB-4818-9B50-F4839D069772}|tpweb\\tpweb.csproj|solutionrelative:tpweb\\pages\\materias\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{12892A49-22EB-4818-9B50-F4839D069772}|tpweb\\tpweb.csproj|c:\\users\\user\\desktop\\tpweb\\tpweb\\pages\\cursos\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{12892A49-22EB-4818-9B50-F4839D069772}|tpweb\\tpweb.csproj|solutionrelative:tpweb\\pages\\cursos\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{12892A49-22EB-4818-9B50-F4839D069772}|tpweb\\tpweb.csproj|c:\\users\\user\\desktop\\tpweb\\tpweb\\pages\\materias\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{12892A49-22EB-4818-9B50-F4839D069772}|tpweb\\tpweb.csproj|solutionrelative:tpweb\\pages\\materias\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{12892A49-22EB-4818-9B50-F4839D069772}|tpweb\\tpweb.csproj|c:\\users\\user\\desktop\\tpweb\\tpweb\\pages\\materias\\details.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12892A49-22EB-4818-9B50-F4839D069772}|tpweb\\tpweb.csproj|solutionrelative:tpweb\\pages\\materias\\details.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -50,28 +54,41 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Index.cshtml.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\tpweb\\tpweb\\Pages\\Cursos\\Index.cshtml.cs",
-              "RelativeDocumentMoniker": "tpweb\\Pages\\Cursos\\Index.cshtml.cs",
-              "ToolTip": "C:\\Users\\User\\Desktop\\tpweb\\tpweb\\Pages\\Cursos\\Index.cshtml.cs",
-              "RelativeToolTip": "tpweb\\Pages\\Cursos\\Index.cshtml.cs",
-              "ViewState": "AgIAAB0AAAAAAAAAAAAwwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-20T18:05:15.07Z",
+              "DocumentIndex": 0,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\tpweb\\tpweb\\Pages\\Materias\\Edit.cshtml",
+              "RelativeDocumentMoniker": "tpweb\\Pages\\Materias\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\User\\Desktop\\tpweb\\tpweb\\Pages\\Materias\\Edit.cshtml",
+              "RelativeToolTip": "tpweb\\Pages\\Materias\\Edit.cshtml",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-21T02:15:09.266Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\tpweb\\tpweb\\Pages\\Cursos\\Index.cshtml",
-              "RelativeDocumentMoniker": "tpweb\\Pages\\Cursos\\Index.cshtml",
-              "ToolTip": "C:\\Users\\User\\Desktop\\tpweb\\tpweb\\Pages\\Cursos\\Index.cshtml",
-              "RelativeToolTip": "tpweb\\Pages\\Cursos\\Index.cshtml",
-              "ViewState": "AgIAAHgAAAAAAAAAAAAAAJ8AAAAAAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "Details.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\tpweb\\tpweb\\Pages\\Materias\\Details.cshtml.cs",
+              "RelativeDocumentMoniker": "tpweb\\Pages\\Materias\\Details.cshtml.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\tpweb\\tpweb\\Pages\\Materias\\Details.cshtml.cs",
+              "RelativeToolTip": "tpweb\\Pages\\Materias\\Details.cshtml.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-21T02:14:46.641Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\tpweb\\tpweb\\Pages\\Materias\\Details.cshtml",
+              "RelativeDocumentMoniker": "tpweb\\Pages\\Materias\\Details.cshtml",
+              "ToolTip": "C:\\Users\\User\\Desktop\\tpweb\\tpweb\\Pages\\Materias\\Details.cshtml",
+              "RelativeToolTip": "tpweb\\Pages\\Materias\\Details.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-20T18:05:06.879Z",
+              "WhenOpened": "2025-10-21T02:14:39.225Z",
               "EditorCaption": ""
             }
           ]
