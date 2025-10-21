@@ -118,11 +118,12 @@ namespace tpweb.Data
              );
 
             modelBuilder.Entity<Curso>().HasData(
-             new Curso { Id = 1, Nombre = "Primer año", EscuelaId = 1 },
-             new Curso { Id = 2, Nombre = "Segundo año", EscuelaId = 1 },
-             new Curso { Id = 3, Nombre = "Tercer año", EscuelaId = 1 },
-             new Curso { Id = 4, Nombre = "Cuarto año", EscuelaId = 1 },
-             new Curso { Id = 5, Nombre = "Quinto año", EscuelaId = 1 }
+              new Curso { Id = 1, Nombre = "Primer Año", Nivel = 1, EscuelaId = 1 },
+              new Curso { Id = 2, Nombre = "Segundo Año", Nivel = 2, EscuelaId = 1 },
+              new Curso { Id = 3, Nombre = "Tercer Año", Nivel = 3, EscuelaId = 1 },
+              new Curso { Id = 4, Nombre = "Cuarto Año", Nivel = 4, EscuelaId = 1 },
+              new Curso { Id = 5, Nombre = "Quinto Año", Nivel = 5, EscuelaId = 1 }
+
             );
 
             modelBuilder.Entity<Rol>().HasData(

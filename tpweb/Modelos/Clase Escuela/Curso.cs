@@ -8,6 +8,7 @@ namespace tpweb.Modelos.Clase_Escuela
         public int Id { get; set; }
         public string Nombre { get; set; } = string.Empty;
 
+        public int Nivel { get; set; }
         public int EscuelaId { get; set; }
         public Escuela Escuela { get; set; } = null!;
 
