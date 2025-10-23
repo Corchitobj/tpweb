@@ -1,21 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using tpweb.Data;
 using tpweb.Modelos.Clase_Escuela;
+using tpweb.Modelos.Clase_Persona;
 
 namespace tpweb.Pages.Materias
 {
     public class EditModel : PageModel
     {
-        private readonly tpweb.Data.AppDbContext _context;
+        private readonly AppDbContext _context;
 
-        public EditModel(tpweb.Data.AppDbContext context)
+        public EditModel(AppDbContext context)
         {
             _context = context;
         }
@@ -23,32 +20,48 @@ namespace tpweb.Pages.Materias
         [BindProperty]
         public Materia Materia { get; set; } = default!;
 
+        public List<SelectListItem> CursosSelect { get; set; } = new();
+        public List<SelectListItem> DocentesSelect { get; set; } = new();
+
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
-            {
                 return NotFound();
-            }
 
-            var materia =  await _context.Materias.FirstOrDefaultAsync(m => m.IdMateria == id);
-            if (materia == null)
-            {
+            Materia = await _context.Materias
+                .Include(m => m.Curso)
+                .Include(m => m.Docente)
+                .FirstOrDefaultAsync(m => m.IdMateria == id);
+
+            if (Materia == null)
                 return NotFound();
-            }
-            Materia = materia;
-           ViewData["CursoId"] = new SelectList(_context.Cursos, "Id", "Nombre");
-           ViewData["DocenteId"] = new SelectList(_context.Usuarios, "IdUsuario", "Apellido");
+
+            CursosSelect = await _context.Cursos
+                .OrderBy(c => c.Nivel)
+                .Select(c => new SelectListItem
+                {
+                    Value = c.Id.ToString(),
+                    Text = c.Nombre
+                })
+                .ToListAsync();
+
+            DocentesSelect = await _context.Usuarios
+                .Where(u => u.Rol != null && u.Rol.Nombre == "Docente")
+                .OrderBy(u => u.Apellido)
+                .Select(d => new SelectListItem
+                {
+                    Value = d.IdUsuario.ToString(),
+                    Text = $"{d.Apellido}, {d.Nombre}"
+                })
+                .ToListAsync();
+
             return Page();
         }
 
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more information, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
-            {
                 return Page();
-            }
 
             _context.Attach(Materia).State = EntityState.Modified;
 
@@ -58,22 +71,13 @@ namespace tpweb.Pages.Materias
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!MateriaExists(Materia.IdMateria))
-                {
+                if (!_context.Materias.Any(e => e.IdMateria == Materia.IdMateria))
                     return NotFound();
-                }
                 else
-                {
                     throw;
-                }
             }
 
             return RedirectToPage("./Index");
-        }
-
-        private bool MateriaExists(int id)
-        {
-            return _context.Materias.Any(e => e.IdMateria == id);
         }
     }
 }

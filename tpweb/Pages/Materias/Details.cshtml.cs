@@ -12,9 +12,9 @@ namespace tpweb.Pages.Materias
 {
     public class DetailsModel : PageModel
     {
-        private readonly tpweb.Data.AppDbContext _context;
+        private readonly AppDbContext _context;
 
-        public DetailsModel(tpweb.Data.AppDbContext context)
+        public DetailsModel(AppDbContext context)
         {
             _context = context;
         }
@@ -24,20 +24,19 @@ namespace tpweb.Pages.Materias
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
-            {
                 return NotFound();
-            }
 
-            var materia = await _context.Materias.FirstOrDefaultAsync(m => m.IdMateria == id);
-            if (materia == null)
-            {
+            Materia = await _context.Materias
+                .Include(m => m.Curso)
+                .Include(m => m.Docente)
+                .FirstOrDefaultAsync(m => m.IdMateria == id);
+
+            if (Materia == null)
                 return NotFound();
-            }
-            else
-            {
-                Materia = materia;
-            }
+
             return Page();
         }
     }
+
+
 }

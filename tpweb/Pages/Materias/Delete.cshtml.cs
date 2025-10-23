@@ -12,9 +12,9 @@ namespace tpweb.Pages.Materias
 {
     public class DeleteModel : PageModel
     {
-        private readonly tpweb.Data.AppDbContext _context;
+        private readonly AppDbContext _context;
 
-        public DeleteModel(tpweb.Data.AppDbContext context)
+        public DeleteModel(AppDbContext context)
         {
             _context = context;
         }
@@ -25,29 +25,23 @@ namespace tpweb.Pages.Materias
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
-            {
                 return NotFound();
-            }
 
-            var materia = await _context.Materias.FirstOrDefaultAsync(m => m.IdMateria == id);
+            Materia = await _context.Materias
+                .Include(m => m.Curso)
+                .Include(m => m.Docente)
+                .FirstOrDefaultAsync(m => m.IdMateria == id);
 
-            if (materia == null)
-            {
+            if (Materia == null)
                 return NotFound();
-            }
-            else
-            {
-                Materia = materia;
-            }
+
             return Page();
         }
 
         public async Task<IActionResult> OnPostAsync(int? id)
         {
             if (id == null)
-            {
                 return NotFound();
-            }
 
             var materia = await _context.Materias.FindAsync(id);
             if (materia != null)
@@ -60,4 +54,6 @@ namespace tpweb.Pages.Materias
             return RedirectToPage("./Index");
         }
     }
+
+
 }

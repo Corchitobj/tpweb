@@ -5,45 +5,51 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
-
-<h4>Materia</h4>
+<h1>Crear Materia</h1>
 <hr />
+
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-6">
         <form method="post">
-            <div class="form-group">
-                <label asp-for="Materia.Nombre" class="control-label"></label>
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+            <!-- Nombre -->
+            <div class="form-group mb-3">
+                <label asp-for="Materia.Nombre" class="form-label">Nombre</label>
                 <input asp-for="Materia.Nombre" class="form-control" />
                 <span asp-validation-for="Materia.Nombre" class="text-danger"></span>
             </div>
 
-            <div class="form-group">
-                <label asp-for="Materia.CursoId" class="control-label">Curso</label>
-                <select asp-for="Materia.CursoId" class="form-control" asp-items="ViewBag.CursoId">
+            <!-- Curso -->
+            <div class="form-group mb-3">
+                <label asp-for="Materia.CursoId" class="form-label">Curso</label>
+                <select asp-for="Materia.CursoId" class="form-select" asp-items="Model.CursosSelect">
                     <option value="">-- Selecciona un curso --</option>
                 </select>
                 <span asp-validation-for="Materia.CursoId" class="text-danger"></span>
             </div>
 
-            <div class="form-group">
-                <label asp-for="Materia.DocenteId" class="control-label">Docente</label>
-                <select asp-for="Materia.DocenteId" class="form-control" asp-items="ViewBag.DocenteId">
+            <!-- Docente -->
+            <div class="form-group mb-3">
+                <label asp-for="Materia.DocenteId" class="form-label">Docente</label>
+                <select asp-for="Materia.DocenteId" class="form-select" asp-items="Model.DocentesSelect">
                     <option value="">-- Selecciona un docente --</option>
                 </select>
                 <span asp-validation-for="Materia.DocenteId" class="text-danger"></span>
             </div>
 
-            <button type="submit" class="btn btn-primary">Crear</button>
-            <a asp-page="./Index" class="btn btn-secondary">Volver</a>
+            <div class="form-group mt-4">
+                <button type="submit" class="btn btn-primary">Crear</button>
+                <a asp-page="./Index" class="btn btn-secondary ms-2">Volver</a>
+            </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-page="Index">Back to List</a>
 </div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+
+
+
+
