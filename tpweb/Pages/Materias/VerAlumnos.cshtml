@@ -2,6 +2,18 @@
 @model tpweb.Pages.Materias.AlumnosModel
 
 <h2>Alumnos de la materia</h2>
+<hr />
+
+<form method="get" class="mb-3">
+    <input type="hidden" name="MateriaId" value="@Model.MateriaId" />
+    <div class="input-group">
+        <input type="text" name="Filtro" value="@Model.Filtro" class="form-control" placeholder="Buscar por nombre o apellido..." />
+        <button type="submit" class="btn btn-outline-primary">Buscar</button>
+        <a asp-page="./VerAlumnos"
+           asp-route-materiaId="@Model.MateriaId"
+           class="btn btn-outline-secondary">Limpiar</a>
+    </div>
+</form>
 
 <table class="table table-bordered">
     <thead>
@@ -9,16 +21,39 @@
             <th>Nombre</th>
             <th>Apellido</th>
             <th>Usuario</th>
+            <th>Acciones</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var alumno in Model.Alumnos)
+        @foreach (var item in Model.AlumnosConPromedio)
         {
+            var colorClase = item.Promedio switch
+            {
+                >= 6 => "text-success",
+                <= 5 => "text-danger",
+                null => "text-warning",
+                _ => ""
+            };
+
             <tr>
-                <td>@alumno.Nombre</td>
-                <td>@alumno.Apellido</td>
-                <td>@alumno.Usuario</td>
+                <td class="@colorClase">@item.Alumno.Nombre</td>
+                <td class="@colorClase">@item.Alumno.Apellido</td>
+                <td>@item.Alumno.Usuario</td>
+                <td>
+                    <a asp-page="./TareasAlumno"
+                       asp-route-alumnoId="@item.Alumno.IdAlumno"
+                       asp-route-materiaId="@Model.MateriaId"
+                       class="btn btn-sm btn-primary">Tareas</a>
+
+                    <a asp-page="./AsistenciasAlumno"
+                       asp-route-alumnoId="@item.Alumno.IdAlumno"
+                       asp-route-materiaId="@Model.MateriaId"
+                       class="btn btn-sm btn-success">Asistencias</a>
+                </td>
             </tr>
         }
     </tbody>
 </table>
+
+
+

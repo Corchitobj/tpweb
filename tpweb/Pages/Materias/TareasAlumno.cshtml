@@ -1,0 +1,90 @@
+﻿@page
+@model tpweb.Pages.Materias.TareasAlumnoModel
+@{
+	ViewData["Title"] = "Tareas del Alumno";
+}
+<h2>Tareas del alumno</h2>
+<hr />
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Título</th>
+            <th>Descripción</th>
+            <th>Fecha de entrega</th>
+            <th>Estado de entrega</th>
+            <th>Nota</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var tarea in Model.TareasAlumno)
+        {
+            <tr>
+                <td>@tarea.Tarea.Titulo</td>
+                <td>@tarea.Tarea.Descripcion</td>
+                <td>@tarea.Tarea.FechaEntrega.ToShortDateString()</td>
+                <td>@(tarea.EstadoEntrega ? "Entregado" : "No entregado")</td>
+                <td>@(tarea.Nota.HasValue ? tarea.Nota.Value.ToString("0.00") : "Sin nota")</td>
+                <td>
+                    @if (tarea.EstadoEntrega && !tarea.Nota.HasValue)
+                    {
+                        <button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#corregirModal-@tarea.TareaId">Corregir</button>
+                    }
+                    else if (tarea.Nota.HasValue)
+                    {
+                        <button class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#editarModal-@tarea.TareaId">Editar Nota</button>
+                    }
+                </td>
+            </tr>
+
+           <!-- Modal Corregir -->
+<div class="modal fade" id="corregirModal-@tarea.TareaId" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header"><h5 class="modal-title">Corregir Tarea</h5></div>
+            <div class="modal-body">
+                <form method="post" asp-page-handler="Corregir">
+                    <input type="hidden" name="TareaId" value="@tarea.TareaId" />
+                    <input type="hidden" name="AlumnoId" value="@Model.AlumnoId" />
+                    <input type="hidden" name="MateriaId" value="@Model.MateriaId" />
+                    <div class="mb-3">
+                        <label class="form-label">Nota</label>
+                        <input type="number" step="0.01" name="Nota" class="form-control" required />
+                    </div>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Editar Nota -->
+<div class="modal fade" id="editarModal-@tarea.TareaId" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header"><h5 class="modal-title">Editar Nota</h5></div>
+            <div class="modal-body">
+                <form method="post" asp-page-handler="EditarNota">
+                    <input type="hidden" name="TareaId" value="@tarea.TareaId" />
+                    <input type="hidden" name="AlumnoId" value="@Model.AlumnoId" />
+                    <input type="hidden" name="MateriaId" value="@Model.MateriaId" />
+                    <div class="mb-3">
+                        <label class="form-label">Nueva Nota</label>
+                        <input type="number" step="0.01" name="Nota" value="@tarea.Nota" class="form-control" required />
+                    </div>
+                    <button type="submit" class="btn btn-primary">Actualizar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+        }
+    </tbody>
+</table>
+
+<h4>Promedio en la materia: <strong>@Model.Promedio</strong></h4>
+
+

@@ -1,0 +1,43 @@
+﻿@page
+@model tpweb.Pages.Materias.AsistenciasAlumnoModel
+@{
+	ViewData["Title"] = "Asistencias del Alumno";
+}
+
+<h2>Asistencias del alumno</h2>
+<hr />
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Fecha</th>
+            <th>Asistencia</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var registro in Model.AsistenciasAlumno.OrderBy(a => a.Asistencia.Fecha))
+        {
+            <tr>
+                <td>@registro.Asistencia.Fecha.ToShortDateString()</td>
+                <td>@(registro.Presente ? "Presente" : "Ausente")</td>
+                <td>
+                    <form method="post" asp-page-handler="Modificar">
+                        <input type="hidden" name="AsistenciaId" value="@registro.AsistenciaId" />
+                        <input type="hidden" name="AlumnoId" value="@Model.AlumnoId" />
+                        <input type="hidden" name="MateriaId" value="@Model.MateriaId" />
+                        <button type="submit" class="btn btn-sm btn-secondary">
+                            @(registro.Presente ? "Marcar Ausente" : "Marcar Presente")
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+
+
+
