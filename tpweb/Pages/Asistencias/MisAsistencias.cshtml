@@ -1,0 +1,73 @@
+﻿@page
+@model tpweb.Pages.Asistencias.MisAsistenciasModel
+@{
+    ViewData["Title"] = "Mis Asistencias";
+}
+<h2 class="mb-4">Mis Inasistencias</h2>
+
+<div class="card mb-4">
+    <div class="card-body">
+        <form method="get" class="row g-2 align-items-end">
+            <div class="col-md-7">
+                <label class="form-label">Seleccioná materia</label>
+                <select asp-for="MateriaId" asp-items="Model.Materias" class="form-select">
+                    <option value="">Todas las materias</option>
+                </select>
+            </div>
+
+            <div class="col-md-3">
+                <label class="form-label d-block">&nbsp;</label>
+                <button type="submit" class="btn btn-primary w-100">Filtrar inasistencias</button>
+            </div>
+            <div class="col-md-2 text-end">
+                <label class="form-label d-block">&nbsp;</label>
+                <a asp-page="/Alumnos/Index" class="btn btn-outline-secondary w-100">Volver</a>
+            </div>
+        </form>
+
+        <hr />
+
+        @if (Model.MateriaId.HasValue && Model.MateriaId.Value > 0)
+        {
+            var nombre = Model.Materias.FirstOrDefault(m => m.Value == Model.MateriaId.Value.ToString())?.Text ?? "la materia seleccionada";
+            <div class="alert alert-info">
+                Ausencias en <strong>@nombre</strong>: <strong>@Model.TotalAusenciasMateria</strong>.
+            </div>
+        }
+        else
+        {
+            <div class="alert alert-warning">
+                Total de inasistencias: <strong>@Model.TotalAusenciasGlobal</strong>.
+            </div>
+        }
+    </div>
+</div>
+
+@if (Model.Ausencias.Any())
+{
+    <table class="table table-bordered table-hover">
+        <thead class="table-primary">
+            <tr>
+                <th>Fecha</th>
+                <th>Materia</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var a in Model.Ausencias)
+            {
+                <tr>
+                    <td>@a.Fecha.ToString("dd/MM/yyyy")</td>
+                    <td>@a.Materia</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="alert alert-light">No hay inasistencias para los filtros seleccionados.</div>
+}
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+}

@@ -1,14 +1,15 @@
 ﻿@page
 @model tpweb.Pages.Asistencias.IndexModel
 
-<h2>Tomar asistencia - Materia @Model.MateriaId</h2>
+<h2>Asistencias</h2>
 
 <form method="post">
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th>Alumno</th>
-                <th>Presente</th>
+                <th>Fecha</th>
+                <th>Materia</th>
+                <th>Asistencia</th>
             </tr>
         </thead>
         <tbody>
@@ -23,8 +24,6 @@
             }
         </tbody>
     </table>
-
-    <button type="submit" class="btn btn-success">Guardar asistencia</button>
 </form>
 
 @section Scripts {
