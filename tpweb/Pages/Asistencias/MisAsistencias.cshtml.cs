@@ -15,50 +15,31 @@ namespace tpweb.Pages.Asistencias
             _context = context;
         }
 
-        // Filtro desde query string
         [BindProperty(SupportsGet = true)]
         public int? MateriaId { get; set; }
 
-        // Lista de materias del alumno para el desplegable
+        [BindProperty(SupportsGet = true)]
+        public string? ReturnUrl { get; set; }
+
+
         public List<SelectListItem> Materias { get; set; } = new();
 
-        // Lista de inasistencias a mostrar
-        public List<AusenciaViewModel> Ausencias { get; set; } = new();
-
-        // Contadores
-        public int TotalAusenciasGlobal { get; set; }
-        public int TotalAusenciasMateria { get; set; }
-
-        // Obtiene el id del alumno: primero por sesión, sino por nombre de usuario
-        private async Task<int?> GetAlumnoIdAsync()
-        {
-            var idSesion = HttpContext.Session.GetInt32("AlumnoId");
-            if (idSesion.HasValue) return idSesion.Value;
-
-            var usuarioNombre = HttpContext.Session.GetString("UsuarioNombre");
-            if (!string.IsNullOrEmpty(usuarioNombre))
-            {
-                var alumno = await _context.Alumnos.FirstOrDefaultAsync(a => a.Usuario == usuarioNombre);
-                if (alumno != null) return alumno.IdAlumno;
-            }
-
-            return null;
-        }
+        public List<AsistenciaViewModel> Asistencias { get; set; } = new();
 
         public async Task<IActionResult> OnGetAsync()
         {
-            var alumnoId = await GetAlumnoIdAsync();
+            var alumnoId = HttpContext.Session.GetInt32("AlumnoId");
+
             if (!alumnoId.HasValue)
             {
-                // Usuario no identificado como alumno: mostrar vacío o redirigir según tu política
                 Materias = new List<SelectListItem>();
-                Ausencias = new List<AusenciaViewModel>();
-                TotalAusenciasGlobal = 0;
-                TotalAusenciasMateria = 0;
+                Asistencias = new List<AsistenciaViewModel>();
                 return Page();
             }
 
-            // Cargar materias donde el alumno está inscripto
+            ReturnUrl ??= "/Index";
+
+            // CARGAR MATERIAS
             Materias = await _context.Materias
                 .Where(m => m.MateriaAlumnos.Any(ma => ma.AlumnoId == alumnoId.Value))
                 .Select(m => new SelectListItem
@@ -68,46 +49,37 @@ namespace tpweb.Pages.Asistencias
                 })
                 .ToListAsync();
 
-            // Query base: sólo inasistencias del alumno
-            var baseQuery = _context.AsistenciasAlumnos
-                .Include(aa => aa.Asistencia)
+            // QUERY BASE
+            var query = _context.AsistenciasAlumnos
+                .Include(a => a.Asistencia)
                     .ThenInclude(a => a.Materia)
-                .Where(aa => aa.AlumnoId == alumnoId.Value && !aa.Presente);
+                .Where(a => a.AlumnoId == alumnoId.Value);
 
-            TotalAusenciasGlobal = await baseQuery.CountAsync();
-
+            // FILTRO
             if (MateriaId.HasValue && MateriaId.Value > 0)
             {
-                baseQuery = baseQuery.Where(aa => aa.Asistencia.MateriaId == MateriaId.Value);
-                TotalAusenciasMateria = await _context.AsistenciasAlumnos
-                    .Include(aa => aa.Asistencia)
-                    .Where(aa => aa.AlumnoId == alumnoId.Value && !aa.Presente && aa.Asistencia.MateriaId == MateriaId.Value)
-                    .CountAsync();
-            }
-            else
-            {
-                TotalAusenciasMateria = 0;
+                query = query.Where(a => a.Asistencia.MateriaId == MateriaId.Value);
             }
 
-            var lista = await baseQuery
-                .OrderByDescending(aa => aa.Asistencia.Fecha)
+            var lista = await query
+                .OrderByDescending(a => a.Asistencia.Fecha)
                 .ToListAsync();
 
-            Ausencias = lista.Select(aa => new AusenciaViewModel
+            Asistencias = lista.Select(a => new AsistenciaViewModel
             {
-                Fecha = aa.Asistencia.Fecha,
-                Materia = aa.Asistencia.Materia?.Nombre ?? "Sin materia",
-                AsistenciaId = aa.AsistenciaId
+                Fecha = a.Asistencia.Fecha,
+                Materia = a.Asistencia.Materia?.Nombre ?? "Sin materia",
+                Presente = a.Presente
             }).ToList();
 
             return Page();
         }
 
-        public class AusenciaViewModel
+        public class AsistenciaViewModel
         {
-            public int AsistenciaId { get; set; }
             public DateTime Fecha { get; set; }
             public string Materia { get; set; } = "";
+            public bool Presente { get; set; }
         }
     }
 }

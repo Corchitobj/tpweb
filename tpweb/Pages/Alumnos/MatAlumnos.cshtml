@@ -4,6 +4,9 @@
 @{
     ViewData["Title"] = "Mis Materias";
     var nombre = HttpContext.Session.GetString("UsuarioNombre");
+
+    // URL actual
+    var returnUrl = HttpContext.Request.Path + HttpContext.Request.QueryString;
 }
 
 <h2 class="mb-4">Materias de @nombre</h2>
@@ -20,6 +23,8 @@ else
                 <th>Nombre</th>
                 <th>Curso</th>
                 <th>Docente</th>
+                <th>Correo</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -29,8 +34,27 @@ else
                     <td>@item.Nombre</td>
                     <td>@item.Curso?.Nombre</td>
                     <td>@(item.Docente != null ? item.Docente.Nombre + " " + item.Docente.Apellido : "Sin docente")</td>
+                    <td>@(item.Docente?.Mail ?? "No informado")</td>
+
+                    <td>
+                        <a asp-page="/Asistencias/MisAsistencias"
+                           asp-route-MateriaId="@item.IdMateria"
+                           asp-route-returnUrl="@returnUrl"
+                           class="btn btn-sm btn-primary me-1">
+                            Asistencias
+                        </a>
+
+                        <a asp-page="/Alumnos/Tareas"
+                           asp-route-MateriaId="@item.IdMateria"
+                           asp-route-returnUrl="@HttpContext.Request.Path + HttpContext.Request.QueryString"
+                           class="btn btn-sm btn-success">
+                            Tareas
+                        </a>
+
+                    </td>
                 </tr>
             }
         </tbody>
     </table>
 }
+

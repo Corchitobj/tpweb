@@ -1,0 +1,99 @@
+﻿@page
+@model tpweb.Pages.Alumnos.TareasModel
+@{
+    ViewData["Title"] = "Mis Tareas";
+}
+
+<h2 class="mb-4">Mis Tareas</h2>
+
+<div class="card mb-4">
+    <div class="card-body">
+        <form method="get" class="row g-2 align-items-end">
+            <div class="col-md-7">
+                <label class="form-label">Seleccioná materia</label>
+                <select asp-for="MateriaId" asp-items="Model.Materias" class="form-select">
+                    <option value="">Todas las materias</option>
+                </select>
+            </div>
+
+            <div class="col-md-3">
+                <label class="form-label d-block">&nbsp;</label>
+                <button type="submit" class="btn btn-primary w-100">Filtrar tareas</button>
+            </div>
+
+            <div class="col-md-2">
+                <label class="form-label d-block">&nbsp;</label>
+                <a href="@Model.ReturnUrl" class="btn btn-outline-secondary w-100">
+                    Volver
+                </a>
+            </div>
+        </form>
+
+        <hr />
+
+        @if (Model.Tareas.Any())
+        {
+            <div class="alert alert-info">
+                Total de tareas: <strong>@Model.Tareas.Count</strong>
+            </div>
+        }
+    </div>
+</div>
+
+@if (Model.Tareas.Any())
+{
+    <table class="table table-bordered table-hover">
+        <thead class="table-primary">
+            <tr>
+                <th>Título</th>
+                <th>Descripción</th>
+                <th>Materia</th>
+                <th>Fecha entrega</th>
+                <th>Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var t in Model.Tareas)
+            {
+                <tr>
+                    <td>@t.Titulo</td>
+                    <td>@t.Descripcion</td>
+                    <td>@t.Materia</td>
+                    <td>@t.FechaEntrega.ToString("dd/MM/yyyy")</td>
+
+                    <td>
+                        @if (!t.EstadoEntrega)
+                        {
+                            <!-- NO ENTREGADA -->
+                            <a href="/Alumnos/EntregaTarea?id=@t.TareaId"
+                               class="btn btn-sm btn-success">
+                                Realizar tarea
+                            </a>
+                        }
+                        else if (t.Corregida)
+                        {
+                            <!-- ENTREGADA Y CORREGIDA -->
+                            <strong>@t.Nota</strong>
+                        }
+                        else
+                        {
+                            <!-- ENTREGADA SIN CORREGIR -->
+                            <span class="text-muted fst-italic">Sin calificar</span>
+                        }
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="alert alert-light">
+        No hay tareas para los filtros seleccionados.
+    </div>
+}
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+}
