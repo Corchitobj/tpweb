@@ -62,6 +62,12 @@
     </tbody>
 </table>
 
+<a asp-page="/Tareas/Index"
+   asp-route-materiaId="@Model.Tarea.MateriaId"
+   class="btn btn-outline-secondary mt-3">
+    ← Volver al listado de tareas
+</a>
+
 @section Scripts {
     <script>
         // Espera 2 segundos y hace desaparecer el alert con fade

@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Drawing.Drawing2D;
 
 namespace tpweb.Modelos.Clase_Escuela
 {

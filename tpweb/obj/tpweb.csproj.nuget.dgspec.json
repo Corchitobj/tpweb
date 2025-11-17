@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\gianl\\OneDrive\\Escritorio\\tpweb\\tpweb\\tpweb.csproj": {}
+    "C:\\Users\\santr\\Desktop\\tpweb\\tpweb\\tpweb.csproj": {}
   },
   "projects": {
-    "C:\\Users\\gianl\\OneDrive\\Escritorio\\tpweb\\tpweb\\tpweb.csproj": {
+    "C:\\Users\\santr\\Desktop\\tpweb\\tpweb\\tpweb.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\gianl\\OneDrive\\Escritorio\\tpweb\\tpweb\\tpweb.csproj",
+        "projectUniqueName": "C:\\Users\\santr\\Desktop\\tpweb\\tpweb\\tpweb.csproj",
         "projectName": "tpweb",
-        "projectPath": "C:\\Users\\gianl\\OneDrive\\Escritorio\\tpweb\\tpweb\\tpweb.csproj",
-        "packagesPath": "C:\\Users\\gianl\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\gianl\\OneDrive\\Escritorio\\tpweb\\tpweb\\obj\\",
+        "projectPath": "C:\\Users\\santr\\Desktop\\tpweb\\tpweb\\tpweb.csproj",
+        "packagesPath": "C:\\Users\\santr\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\santr\\Desktop\\tpweb\\tpweb\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\gianl\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\santr\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -88,7 +88,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

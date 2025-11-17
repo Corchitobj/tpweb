@@ -1,15 +1,24 @@
 ﻿@page
 @model tpweb.Pages.Asistencias.IndexModel
 
-<h2>Asistencias</h2>
+@{
+    ViewData["Title"] = "Toma de Asistencia";
+}
+
+<h2 class="mb-4">Toma de Asistencia</h2>
+
+<div class="mb-3">
+    <strong>Fecha:</strong> @DateTime.Today.ToString("dd/MM/yyyy")
+</div>
 
 <form method="post">
-    <table class="table table-bordered">
-        <thead>
+    <input type="hidden" asp-for="MateriaId" />
+
+    <table class="table table-bordered table-hover">
+        <thead class="table-primary">
             <tr>
-                <th>Fecha</th>
-                <th>Materia</th>
-                <th>Asistencia</th>
+                <th>Alumno</th>
+                <th>Presente</th>
             </tr>
         </thead>
         <tbody>
@@ -17,13 +26,16 @@
             {
                 <tr>
                     <td>@alumno.Nombre @alumno.Apellido</td>
-                    <td>
+                    <td class="text-center">
                         <input type="checkbox" name="presentes" value="@alumno.IdAlumno" />
                     </td>
                 </tr>
             }
         </tbody>
     </table>
+
+    <button type="submit" class="btn btn-primary">Guardar asistencia</button>
+    <a asp-page="/Materias/Index" class="btn btn-secondary">Cancelar</a>
 </form>
 
 @section Scripts {

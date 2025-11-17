@@ -13,9 +13,9 @@ namespace tpweb.Pages.Usuarios
 {
     public class EditModel : PageModel
     {
-        private readonly tpweb.Data.AppDbContext _context;
+        private readonly AppDbContext _context;
 
-        public EditModel(tpweb.Data.AppDbContext context)
+        public EditModel(AppDbContext context)
         {
             _context = context;
         }
@@ -23,31 +23,43 @@ namespace tpweb.Pages.Usuarios
         [BindProperty]
         public Usuario Usuario { get; set; } = default!;
 
+        public List<SelectListItem> RolesSelect { get; set; } = new();
+
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
 
-            var usuario =  await _context.Usuarios.FirstOrDefaultAsync(m => m.IdUsuario == id);
-            if (usuario == null)
-            {
-                return NotFound();
-            }
-            Usuario = usuario;
-           ViewData["RolId"] = new SelectList(_context.Roles, "IdRol", "IdRol");
+            Usuario = await _context.Usuarios
+                .Include(u => u.Rol)
+                .FirstOrDefaultAsync(u => u.IdUsuario == id);
+
+            if (Usuario == null) return NotFound();
+
+            RolesSelect = await _context.Roles
+                .Select(r => new SelectListItem
+                {
+                    Value = r.IdRol.ToString(),
+                    Text = r.Nombre
+                }).ToListAsync();
+
             return Page();
         }
 
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more information, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
             {
+                RolesSelect = await _context.Roles
+                    .Select(r => new SelectListItem
+                    {
+                        Value = r.IdRol.ToString(),
+                        Text = r.Nombre
+                    }).ToListAsync();
+
                 return Page();
             }
+
+            Usuario.Rol = await _context.Roles.FindAsync(Usuario.Rol.IdRol);
 
             _context.Attach(Usuario).State = EntityState.Modified;
 
@@ -57,22 +69,16 @@ namespace tpweb.Pages.Usuarios
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!UsuarioExists(Usuario.IdUsuario))
-                {
+                if (!_context.Usuarios.Any(u => u.IdUsuario == Usuario.IdUsuario))
                     return NotFound();
-                }
                 else
-                {
                     throw;
-                }
             }
 
             return RedirectToPage("./Index");
         }
 
-        private bool UsuarioExists(int id)
-        {
-            return _context.Usuarios.Any(e => e.IdUsuario == id);
-        }
+
+
     }
 }
