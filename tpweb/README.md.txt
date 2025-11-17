@@ -68,13 +68,6 @@ Solución "tpweb"
 │   │   ├── Formularios, Login, Logout, Registrarse – Páginas de autenticación y navegación general
 │   │   └── Index, Error, Privacy – Páginas base del proyecto
 │
-│   ├── Servicios
-│   │   ├── ServiciosAdministrador – Lógica de negocio para el rol administrador
-│   │   ├── ServiciosAlumno – Funciones específicas para el alumno
-│   │   ├── ServiciosDocente – Funciones específicas para el docente
-│   │   ├── ServiciosPreceptor – Funciones específicas para el preceptor
-│   │   └── AlumnoService.cs – Servicio compartido para lógica de alumnos
-│
 │   ├── appsettings.json / appsettings.Development.json
 │   │   Configuración de conexión a la base de datos y parámetros del entorno
 │
